@@ -1,0 +1,70 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Tile Matching Game
+{{ endblock }}
+
+{{ block content }}
+
+<p>Total score: <span id="totalScore">0.0</span> stars</p>
+
+<!-- <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda"> -->
+
+
+<div class="game_container">
+
+    <section class="score-panel">
+        <ul class="stars">
+            <li><i id="star1" class="fa fa-star star"></i></li>
+            <li><i id="star2" class="fa fa-star star"></i></li>
+            <li><i id="star3" class="fa fa-star star"></i></li>
+        </ul>
+
+        <div id="timeElapsed" class="timeElapsed">
+            <span id="secondsElapsed">0</span> s
+        </div>
+
+        <div class="moves">
+            <span id="movesNumberDisplay">0</span> Moves
+        </div>
+
+        <div class="matched">
+            <span id="matchedCoupleDisplay">0</span>/10 Matched
+        </div>
+
+    </section>
+
+    <ul id="deck" class="deck">
+		<li id=1  class="tile diamond">		<i class="fa fa-diamond"></i></li>
+        <li id=2  class="tile plane">         <i class="fa fa-paper-plane-o"></i></li>
+        <li id=3  class="tile anchor">        <i class="fa fa-anchor"></i></li>
+        <li id=4  class="tile thumbs">        <i class="fa fa-thumbs-o-up"></i></li>
+        <li id=5  class="tile bolt">          <i class="fa fa-bolt"></i></li>
+        <li id=6  class="tile cube">          <i class="fa fa-cube"></i></li>
+        <li id=7  class="tile anchor">        <i class="fa fa-anchor"></i></li>
+        <li id=8  class="tile leaf">          <i class="fa fa-leaf"></i></li>
+        <li id=9  class="tile bicycle">       <i class="fa fa-bicycle"></i></li>
+        <li id=10 class="tile diamond">       <i class="fa fa-diamond"></i></li>
+        <li id=11 class="tile bomb">          <i class="fa fa-bomb"></i></li>
+        <li id=12 class="tile leaf">          <i class="fa fa-leaf"></i></li>
+        <li id=13 class="tile paperclip">     <i class="fa fa-paperclip"></i></li>
+        <li id=14 class="tile bomb">          <i class="fa fa-bomb"></i></li>
+        <li id=15 class="tile bolt">          <i class="fa fa-bolt"></i></li>
+        <li id=16 class="tile bicycle">       <i class="fa fa-bicycle"></i></li>
+        <li id=17 class="tile plane">         <i class="fa fa-paper-plane-o"></i></li>
+        <li id=18 class="tile cube">          <i class="fa fa-cube"></i></li>
+        <li id=19 class="tile paperclip">     <i class="fa fa-paperclip"></i></li>
+        <li id=20 class="tile thumbs">        <i class="fa fa-thumbs-o-up"></i></li>
+    </ul>
+</div>
+
+
+{{ form.star_rating.errors }}
+<input type="hidden" name="star_rating" id="star_rating" />
+{{ form.game_stats.errors }}
+<input type="hidden" name="game_stats" id="game_stats" />
+
+<script src="/static/global/tiles.js"></script>
+{{ endblock }}
