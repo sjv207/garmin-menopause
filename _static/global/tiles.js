@@ -12,19 +12,18 @@ let matchedCouplesNumber = 0;
 let starRating = 3;
 let matchNumber = 1;
 let idOrder = [];
-let movesJSON = { "grid": {}, "clicks": [] };
 let timeSpent = 0;
 let timer = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    liveSend({ 'status': "NewGame" });
+    liveSend({ 'status': "new_game" });
 });
 
 
 function liveRecv(data) {
     console.log("liveRecv data:", data);
-    if (data['status'] === "NewGame") {
+    if (data['status'] === "new_game") {
         restartGame();
         // Arm the timer here so it restarts on new game, but not after a page reload
         timeSpent = 0;
@@ -33,16 +32,9 @@ function liveRecv(data) {
             document.getElementById('secondsElapsed').textContent = timeSpent;
         }
         timer = setInterval(myInterval, 1000);
-    } else if (data['status'] === "refresh") {
-        // TODO Put any code here to handle page refresh without losing time elapsed
-        clearInterval(timer);
-
-        timeSpent = data['time_elapsed'];
-        function myInterval() {
-            timeSpent++;
-            document.getElementById('secondsElapsed').textContent = timeSpent;
-        }
-        timer = setInterval(myInterval, 1000);
+    }
+    if (data['debug']) {
+        document.documentElement.style.setProperty('--tile-font-size', '15px');
     }
 }
 
@@ -61,13 +53,12 @@ function newGame() {
         idOrder.push(cardsList[i].id);
         deckStr += '\"' + i + '\":\"' + cardsList[i].classList[1] + '\"'
     }
-    movesJSON.grid = JSON.parse("{" + deckStr + "}");
 }
-// newGame();
 
 //Calls newGame function, reset timer, reset open/shown/matched cards, reset move number and matched cards number, reset star rating.
 function restartGame() {
     newGame();
+    console.log(`Starting new game. Match number: ${matchNumber}, ${matchCardsHC.length} matched cards, ${openCardsHC.length} open cards.`);
 
     if (matchCardsHC.length > 0 || openCardsHC.length > 0) {
         resetCards();
@@ -112,11 +103,6 @@ function flipCard(evt) {
     if ($('.show').length > 1) {
         return true;
     }
-
-    // Log the click
-    now = new Date()
-    let clickDataJson = { "time": now.getTime(), "tile": idOrder.indexOf(evt.target.id) };
-    movesJSON.clicks.push(clickDataJson);
 
     let flippedCard = evt.target;
     if (flippedCard.nodeName === 'LI') {
@@ -184,6 +170,7 @@ function handleMatchedCards() {
 
 //remove open/show/match class to all matched cards.
 function resetCards() {
+    console.log("Resetting cards");
     let openCardsArray = Array.prototype.slice.call(openCardsHC);
     openCardsArray.forEach(function (card) {
         card.classList.remove('open', 'show');
@@ -212,10 +199,8 @@ function checkIfGameOver() {
     console.log("Tiles: " + CARDS.length + ", Matched: " + matchCardsArray.length)
     if (matchCardsArray.length === CARDS.length) {
 
-        document.getElementById('star_rating').value = starRating;
-        document.getElementById('game_stats').value = JSON.stringify(movesJSON);
         // document.getElementById('form').submit();
-        liveSend({ 'star_rating': starRating, 'game_stats': JSON.stringify(movesJSON) });
+        liveSend({ 'status': 'success', 'star_rating': starRating});
     } else {
         return;
     }
@@ -252,8 +237,8 @@ function checkMovesNumber() {
         STAR_1.classList.add('fa-star-o');
         alert('Game over! You made too many moves!\nTotal moves: ' + movesNumber + '\nTime elapsed: ' + sec + ' seconds' + '\nYour rating: ' + starRating + ' stars');
         // clearInterval(timer);
-        document.getElementById('star_rating').value = 0.0
-        document.getElementById('form').submit();
+        // document.getElementById('form').submit();
+        liveSend({'status': 'failed', 'star_rating': 0.0});
     } else {
         return;
     }

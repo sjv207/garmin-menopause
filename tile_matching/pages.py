@@ -6,26 +6,7 @@ logger = logging.getLogger('memMatchPages')
 
 
 class TilePage(Page):
-    form_model = 'player'
-    form_fields = ['star_rating', 'game_stats']
     timeout_seconds = C.TASK_TIME_SECONDS
-
-    # @staticmethod
-    # def is_displayed(player: Player):
-    #     if 'expiry' not in player.participant.vars:
-    #         # Need to clear these at the beginning of the app
-    #         player.participant.vars['num_correct'] = 0
-    #         player.participant.vars['num_attempts'] = 0
-    #         player.participant.vars['correct_answer'] = 0
-    #         player.participant.vars['last_stars'] = 0
-    #         # Set the game timer up too
-    #         player.participant.vars['expiry'] = time.time() + C.total_time
-    #         logger.info(f"Setting timer to : {player.participant.vars['expiry']}")
-
-    #     if 'gameover' in player.participant.vars:
-    #         return False
-    #     else:
-    #         return True
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened: bool):
@@ -34,8 +15,13 @@ class TilePage(Page):
 
     @staticmethod
     def live_method(player: Player, data):
-        logger.debug(f"live_method data: {data}")
-        return {player.id_in_group: "newGame"}
+        logger.info(f"live_method data: {data}")
+
+        if data['status'] != 'failed' and data['status'] != 'new_game':
+            player.stars_running_total += data['star_rating']
+            player.num_correct_running_total += 1
+
+        return {player.id_in_group: {"status": "new_game", "debug": player.session.config['debug_mode']}}
 
 
 class Results(Page):

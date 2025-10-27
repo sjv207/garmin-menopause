@@ -1,3 +1,7 @@
+    :root {
+        --tile-font-size: 0px;
+    }
+    
     html {
         box-sizing: border-box;
     }
@@ -50,7 +54,7 @@
         color: #ffffff;
         cursor: pointer;
         display: flex;
-        font-size: 0;
+        font-size: var(--tile-font-size);
         justify-content: center;
         height: 55px;
         width: 55px;

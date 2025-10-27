@@ -41,18 +41,13 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    star_rating = models.FloatField()
-    game_stats = models.LongStringField()
     stars_running_total = models.FloatField(initial=0.0)
     num_correct_running_total = models.IntegerField(initial=0)
 
     def calc_payoff(self):
 
-        self.payoff = self.star_rating
+        self.payoff = self.stars_running_total
         logger.debug(f"Payoff: {self.payoff}")
-
-        self.participant.vars['last_stars'] = self.star_rating
-        self.participant.vars['num_correct'] += self.star_rating
 
         logger.info(
             f"Total {self.participant.vars['num_correct']}, last attempt: {self.participant.vars['last_stars']}, round: {self.round_number}")
