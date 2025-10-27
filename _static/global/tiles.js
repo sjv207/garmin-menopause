@@ -238,7 +238,7 @@ function checkMovesNumber() {
         starRating = 0;
         STAR_1.classList.remove('fa-star-half-o');
         STAR_1.classList.add('fa-star-o');
-        alert('Game over! You made too many moves!\nTotal moves: ' + movesNumber + '\nTime elapsed: ' + sec + ' seconds' + '\nYour rating: ' + starRating + ' stars');
+        alert('Game over! You made too many moves!\nTotal moves: ' + movesNumber + '\nYour rating: ' + starRating + ' stars');
         // clearInterval(timer);
         // document.getElementById('form').submit();
         liveSend({'status': 'failed', 'star_rating': 0.0});
