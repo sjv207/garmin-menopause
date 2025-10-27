@@ -6,6 +6,7 @@ SESSION_CONFIGS = [
         app_sequence=['tile_matching'],
         num_demo_participants=1,
         debug_mode=True,
+        use_browser_bots=True,
     ),
 ]
 
@@ -38,4 +39,4 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = '1283572204412'
 
 # CONSTANTS
-TASK_TIME_SECONDS=2*60
+TASK_TIME_SECONDS = 2*60

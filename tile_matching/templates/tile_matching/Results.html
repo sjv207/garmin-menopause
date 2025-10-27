@@ -7,11 +7,10 @@
 
 {% block content %}
 
-<p>You scored <strong>{{ player.participant.vars.num_correct }}</strong> stars from {{ player.round_number }} games</p>
+<p>You scored <strong>{{ player.stars_running_total }}</strong> stars from {{ player.num_correct_running_total }} games</p>
 <p></p>
-<p>Your payoff will be <b>{{ player.participant.payoff_plus_participation_fee }}</b></p>
-<hr>
-<p>Please wait for the other experiment to finish</p>
+
+{{next_button}}
 
 
 
