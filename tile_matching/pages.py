@@ -6,7 +6,7 @@ logger = logging.getLogger('memMatchPages')
 
 
 class TilePage(Page):
-    timeout_seconds = C.TASK_TIME_SECONDS
+    timeout_seconds = C.TASK_TIME_SECONDS * 100
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened: bool):
@@ -21,7 +21,9 @@ class TilePage(Page):
             player.stars_running_total += data['star_rating']
             player.num_correct_running_total += 1
 
-        return {player.id_in_group: {"status": "new_game", "debug": player.session.config['debug_mode']}}
+        return {player.id_in_group: {"status": "new_game",
+                                     "star_rating": player.stars_running_total,
+                                     "debug": player.session.config['debug_mode']}}
 
 
 class Results(Page):

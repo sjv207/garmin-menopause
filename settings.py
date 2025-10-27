@@ -5,7 +5,7 @@ SESSION_CONFIGS = [
         name='Tiles',
         app_sequence=['tile_matching'],
         num_demo_participants=1,
-        debug_mode=False,
+        debug_mode=True,
     ),
 ]
 

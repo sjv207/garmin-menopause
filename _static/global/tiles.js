@@ -32,6 +32,9 @@ function liveRecv(data) {
             document.getElementById('secondsElapsed').textContent = timeSpent;
         }
         timer = setInterval(myInterval, 1000);
+
+        console.log(`Star rating: ${data['star_rating']}`);
+        document.getElementById('totalScore').textContent = data['star_rating'].toFixed(1);
     }
     if (data['debug']) {
         document.documentElement.style.setProperty('--tile-font-size', '15px');
