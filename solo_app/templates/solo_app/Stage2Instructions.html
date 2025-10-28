@@ -1,0 +1,16 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Stage 2 Instructions
+{{ endblock }}
+
+{{ block content }}
+<p>Now Stage 1 of the study (Piece-Rate payout) takes place, in which you <strong>receive {{C.PIECE_RATE}} ECU for each correctly solved 
+    tile game</strong>. You have <strong>2 minutes</strong> for this task.</p>
+
+<p>When you are ready, please click on "Next" and Stage 2 will start automatically.</p>
+
+{{ next_button}}
+
+{{ endblock }}

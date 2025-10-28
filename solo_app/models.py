@@ -6,7 +6,7 @@ from otree.api import (
     BasePlayer,
 )
 import logging
-from settings import TASK_TIME_SECONDS, TRIAL_TIME_SECONDS
+from settings import TASK_TIME_SECONDS, TRIAL_TIME_SECONDS, FIXED_RATE, PIECE_RATE, COMPETITION_RATE
 
 logger = logging.getLogger('memMatchModels')
 
@@ -21,6 +21,9 @@ class C(BaseConstants):
     TASK_TIME_SECONDS = TASK_TIME_SECONDS
     TRIAL_TIME_SECONDS = TRIAL_TIME_SECONDS
     NUM_ROUNDS = 1
+    FIXED_RATE = FIXED_RATE
+    PIECE_RATE = PIECE_RATE
+    COMPETITION_RATE = COMPETITION_RATE
 
 
 class Subsession(BaseSubsession):
@@ -32,17 +35,19 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    stars_running_total = models.FloatField(initial=0.0)
-    num_correct_running_total = models.IntegerField(initial=0)
-
-    def live_method_tiles(self, data):
+    def live_method_tiles(self, data, stage_name):
         logger.info(f"live_method data: {data}")
+        if f"{stage_name}_star_rating" not in self.participant.vars:
+            self.participant.vars[f"{stage_name}_star_rating"] = 0.0
+            self.participant.vars[f"{stage_name}_count"] = 0
 
         if data['status'] != 'failed' and data['status'] != 'new_game':
-            self.stars_running_total += data['star_rating']
-            self.num_correct_running_total += 1
+            self.participant.vars[f"{stage_name}_star_rating"] += data['star_rating']
+            self.participant.vars[f"{stage_name}_count"] += 1
+
+        logger.info(f"{stage_name} total stars: {self.participant.vars[f'{stage_name}_star_rating']}, count: {self.participant.vars[f'{stage_name}_count']}")
 
         return {self.id_in_group: {"status": "new_game",
-                                   "star_rating": self.stars_running_total,
+                                   "star_rating": self.participant.vars[f"{stage_name}_star_rating"],
                                    "debug": self.session.config['debug_mode'],
                                    }}

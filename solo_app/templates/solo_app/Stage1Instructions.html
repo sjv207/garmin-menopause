@@ -1,0 +1,16 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Stage 1 Instructions
+{{ endblock }}
+
+{{ block content }}
+<p>Now Stage 1 of the study (Fixed payout) takes place, in which you <strong>receive {{C.FIXED_RATE}} ECU</strong>. You
+    have <strong>2 minutes</strong> for this task.</p>
+
+<p>When you are ready, please click on "Next" and Stage 1 will start automatically.</p>
+
+{{ next_button}}
+
+{{ endblock }}

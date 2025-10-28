@@ -26,7 +26,7 @@ function liveRecv(data) {
     if (data['status'] === "new_game") {
         restartGame();
         // Arm the timer here so it restarts on new game, but not after a page reload
-        learInterval(timer);
+        clearInterval(timer);
         timeSpent = 0;
         function myInterval() {
             timeSpent++;
@@ -38,6 +38,7 @@ function liveRecv(data) {
         document.getElementById('totalScore').textContent = data['star_rating'].toFixed(1);
     }
     if (data['debug']) {
+        console.log("Adjusting tile size for debug mode.");
         document.documentElement.style.setProperty('--tile-font-size', '15px');
     }
 }

@@ -13,7 +13,7 @@ SESSION_CONFIGS = [
         display_name='TEST - no consent',
         app_sequence=['solo_app'],
         num_demo_participants=1,
-        debug_mode=False,
+        debug_mode=True,
         use_browser_bots=False,
     ),
 ]
@@ -47,9 +47,12 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = '1283572204412'
 
 # CONSTANTS
-TASK_TIME_SECONDS = 2*60
-TRIAL_TIME_SECONDS = 1*60
+TASK_TIME_SECONDS = 1*60
+TRIAL_TIME_SECONDS = 4*60
 
+FIXED_RATE = 5
+PIECE_RATE = 2
+COMPETITION_RATE = 3
 
 DROPOUT_STATES_PLAYING = "Playing"
 DROPOUT_STATES_DROPOUT = "Dropout"
