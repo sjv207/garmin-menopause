@@ -74,17 +74,10 @@ class Stage3(Page):
 
     @staticmethod
     def live_method(player: Player, data):
-        return player.live_method_tiles(data)
-
-
-class Results(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == C.NUM_ROUNDS
+        return player.live_method_tiles(data, "Stage3")
 
 
 page_sequence = [TrialInstructions, Trial,
                  Stage1Instructions, Stage1,
                  Stage2Instructions, Stage2,
-                 Stage3Instructions, Stage3,
-                 Results]
+                 Stage3Instructions, Stage3,]
