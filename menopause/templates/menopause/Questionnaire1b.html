@@ -1,0 +1,75 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Questionnaire - page 2
+{{ endblock }}
+
+{{ block content }}
+<style>
+    .form-check-input {
+        margin-left: 0;
+    }
+</style>
+
+{{ formfield player.children }}
+
+<table class="table" style="width: 60%;">
+    <tbody>
+        <tr>
+            <td>What is your height in feet and inches?</td>
+            <td>ft:</td>
+            <td>
+                {{ formfield player.height_ft label=""}}
+            </td>
+            <td>in:</td>
+            <td>
+                {{ formfield player.height_in label=""}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{{ formfield player.weight }}
+{{ formfield player.exercise }}
+
+
+<p>Please answer the following questions on a scale from 0 (not healthy at all) to 10 (very healthy). </p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td></td>
+            <td>not healthy at all <br>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>very healthy<br>10</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{ for field in form }}
+        {{ if field.name == 'lk_physical_health' or field.name == 'lk_mental_health' }}
+        <tr>
+            <th scope="row" width="40%">
+                {{ field.label}}
+            </th>
+            {{ for choice in field }}
+            <td width="80px">{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+        {{ endif }}
+        {{ endfor }}
+    </tbody>
+</table>
+
+{{ formfield player.attention_chk1 }}
+
+{{ next_button }}
+{{ endblock }}

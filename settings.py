@@ -6,7 +6,7 @@ SESSION_CONFIGS = [
         app_sequence=['consent', 'solo_app'],
         num_demo_participants=1,
         debug_mode=False,
-        use_browser_bots=False,
+        use_browser_bots=True,
     ),
     dict(
         name='NoConsent',
@@ -14,6 +14,13 @@ SESSION_CONFIGS = [
         app_sequence=['solo_app'],
         num_demo_participants=1,
         debug_mode=True,
+        use_browser_bots=False,
+    ),
+    dict(
+        name='MenopauseNoConsent',
+        display_name='TEST - Survey, no consent',
+        app_sequence=['menopause'],
+        num_demo_participants=1,
         use_browser_bots=False,
     ),
 ]
@@ -27,7 +34,9 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=1.00, doc=""
 )
 
-PARTICIPANT_FIELDS = []
+PARTICIPANT_FIELDS = ["Stage1_star_rating", "Stage1_count",
+                      "Stage2_star_rating", "Stage2_count",
+                      "Stage3_star_rating", "Stage3_count",]
 SESSION_FIELDS = []
 
 # ISO-639 code

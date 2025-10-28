@@ -1,0 +1,25 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Questionnaire - page 1
+{{ endblock }}
+
+{{ block content }}
+<style>
+    .form-check-input {
+        margin-left: 0;
+    }
+</style>
+
+{{ formfield player.age }}
+{{ formfield player.gender }}
+{{ formfield player.other_gender }}
+{{ formfield player.t_gender }}
+{{ formfield player.legal_gender }}
+{{ formfield player.nationality }}
+{{ formfield player.ethnicity }}
+{{ formfield player.other_ethnicity }}
+
+{{ next_button }}
+{{ endblock }}

@@ -1,0 +1,17 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Garmin
+{{ endblock }}
+
+{{ block content }}
+
+{{ formfield player.garmin_id }}
+{{ formfield player.garmin_wear_frequency }}
+{{ formfield player.garmin_engagement }}
+
+
+{{ next_button }}
+
+{{ endblock }}
