@@ -233,5 +233,5 @@ class Player(BasePlayer):
 
     def is_playing(self):
         if 'status' not in self.participant.vars:
-            self.participant.vars['status'] = "Playing"
-        return self.participant.vars['status'] == "Playing"
+            self.participant.vars['status'] = "PLAYING"
+        return self.participant.vars['status'] == "PLAYING"

@@ -3,7 +3,7 @@ from os import environ
 SESSION_CONFIGS = [
     dict(
         name='Tiles',
-        app_sequence=['consent', 'solo_app'],
+        app_sequence=['consent', 'solo_app', 'menopause', 'completion'],
         num_demo_participants=1,
         debug_mode=False,
         use_browser_bots=True,
@@ -20,6 +20,13 @@ SESSION_CONFIGS = [
         name='MenopauseNoConsent',
         display_name='TEST - Survey, no consent',
         app_sequence=['menopause'],
+        num_demo_participants=1,
+        use_browser_bots=False,
+    ),
+    dict(
+        name='CompletionNoConsent',
+        display_name='TEST - Completion, no consent',
+        app_sequence=['completion'],
         num_demo_participants=1,
         use_browser_bots=False,
     ),
