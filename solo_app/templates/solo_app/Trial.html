@@ -1,0 +1,19 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Trial round
+{{ endblock }}
+
+{{ block content }}
+
+<p>You have <strong>1 minute</strong> to familiarize yourself with the task.</p>
+
+
+&nbsp;
+{{ include "global/tile_instructions.html" }}
+
+{{ include "global/tile_task.html" }}
+
+
+{{ endblock }}

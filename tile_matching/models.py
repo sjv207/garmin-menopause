@@ -64,14 +64,14 @@ class Player(BasePlayer):
         #     f"Setting final payment to: {self.participant.payoff}, from: {self.participant.vars['num_correct']}")
 
 
-def set_participant_payoff_info(participant, task_name):
-    vars = participant.vars
-    if not vars or 'payouts' not in vars:
-        vars['payouts'] = {}
+# def set_participant_payoff_info(participant, task_name):
+#     vars = participant.vars
+#     if not vars or 'payouts' not in vars:
+#         vars['payouts'] = {}
 
-    payouts = vars['payouts']
+#     payouts = vars['payouts']
 
-    # This will either create a new entry or update the current one
-    new_entry = {task_name: vars['num_correct']}
-    logger.info(f"Setting {task_name} payoff to: {vars['num_correct']}")
-    payouts.update(new_entry)
+#     # This will either create a new entry or update the current one
+#     new_entry = {task_name: vars['num_correct']}
+#     logger.info(f"Setting {task_name} payoff to: {vars['num_correct']}")
+#     payouts.update(new_entry)

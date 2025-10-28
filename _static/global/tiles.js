@@ -26,6 +26,7 @@ function liveRecv(data) {
     if (data['status'] === "new_game") {
         restartGame();
         // Arm the timer here so it restarts on new game, but not after a page reload
+        learInterval(timer);
         timeSpent = 0;
         function myInterval() {
             timeSpent++;

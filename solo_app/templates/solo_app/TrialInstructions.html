@@ -1,0 +1,28 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Trial round instructions
+{{ endblock }}
+
+{{ block content }}
+
+<p>You are about to enter a trial round and will have <strong>1 minute</strong> to familiarize yourself with the task.
+    The trial round is not payoff relevant.</p>
+
+{{ include "global/tile_instructions.html" }}
+
+<p>The image below is an example of a game in progress. Above the grid, is the current star rating base on the number of
+    moves, the number of moves, and the number of tiles matched</p>
+
+
+<img src="{% static 'global/MemMatchingScreenShot.png' %}" alt="Tile Game"  />
+
+
+&nbsp;
+<p>After you have completed the trial round, you will be given further instructions about the payoff-relevant stages.</p>
+
+<button class="btn btn-primary">Start trial</button>
+
+
+{{ endblock }}

@@ -3,10 +3,18 @@ from os import environ
 SESSION_CONFIGS = [
     dict(
         name='Tiles',
-        app_sequence=['tile_matching'],
+        app_sequence=['consent', 'solo_app'],
         num_demo_participants=1,
-        debug_mode=True,
-        use_browser_bots=True,
+        debug_mode=False,
+        use_browser_bots=False,
+    ),
+    dict(
+        name='NoConsent',
+        display_name='TEST - no consent',
+        app_sequence=['solo_app'],
+        num_demo_participants=1,
+        debug_mode=False,
+        use_browser_bots=False,
     ),
 ]
 
@@ -16,7 +24,7 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+    real_world_currency_per_point=1.00, participation_fee=1.00, doc=""
 )
 
 PARTICIPANT_FIELDS = []
@@ -40,3 +48,9 @@ SECRET_KEY = '1283572204412'
 
 # CONSTANTS
 TASK_TIME_SECONDS = 2*60
+TRIAL_TIME_SECONDS = 1*60
+
+
+DROPOUT_STATES_PLAYING = "Playing"
+DROPOUT_STATES_DROPOUT = "Dropout"
+DROPOUT_STATES_NON_CONSENT = "Non Consent"

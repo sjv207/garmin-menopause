@@ -1,0 +1,38 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Introduction
+{{ endblock }}
+
+{{ block content }}
+
+<p>During the study, all participants will be asked to complete a task. Both your own decisions and those of the other
+    participants may determine your payout according to the rules explained on the next pages.</p>
+
+<p>Each participant makes their decisions anonymously, and all answers remain confidential.</p>
+
+<p>The currency in the experiment is the Experimental Currency Unit (ECU).</p>
+
+<p>The experiment consists of <strong>4 Stages</strong> and a short survey. You will be informed of the outcome of the
+    different stages at
+    the end of the experiment. One of the stages is selected at random for your payout of
+    any bonus earned at the rate of <strong>{{conversion_rate}} ECU = {{ecus}}</strong>.</p>
+
+<p>The 4 stages are:</p>
+<ul>
+    <li>Stage 1: Fixed fee - you will perform the task and recieve a fixed fee, regardless of performance</li>
+    <li>Stage 2: Piece rate - you will be paid a fixed amount for each correct response. The more you solve, the more you get paid</li>
+    <li>Stage 3: Competitive - you will be paid based on your performance relative to other participants. If you perform better than 
+        others, you will earn more</li>
+    <li>Stage 4: Choice - you will have the option to choose which of the previous 3 stages again.</li>
+</ul>
+
+<p>Your total earnings from the experiment are the sum of your payments for the randomly selected stage (bonus) plus a
+    participation fee of {{session.config.participation_fee}}. </p>
+
+<p>The instructions for the respective stages are displayed at the start of each of the stages.</p>
+
+{{ next_button }}
+
+{{ endblock }}

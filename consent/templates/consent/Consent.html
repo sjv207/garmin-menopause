@@ -1,0 +1,111 @@
+{{ extends "global/Page.html" }}
+{{ load staticfiles otree_tags }}
+
+{{ block title }}
+
+{{ endblock }}
+
+{{ block content }}
+<div class="panel panel-danger">
+    <div class="panel-heading"><strong>Attention!</strong></div>
+    <div class="panel-body">
+        <p><strong>You have <b>{{ C.CONSENT_TIMEOUT}}</b> seconds to read and accept this
+                Consent Form.</strong></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box1 shadow1">
+            <h3>Informed Consent Information</h3>
+            <p>This is a study on economic decision making.</p>
+
+            <p>By proceeding with the experiment, you provide consent that you understand the information provided and
+                agree to participate in this study. You also understand that your participation is voluntary and you may
+                withdraw at any time.</p>
+
+            <p class='red'>
+                <i>{{form.consent}} I acknowledge that I have read the rules and privacy policy</i>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="new_placeholder_for_otree_timer" style="font-size: 1.5rem;"></div>
+{{ next_button }}
+
+{{ if form.consent.errors }}
+<div class="modal fade" tabindex="-1" role="dialog" id='myModal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Please, accept this consent agreement</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{ form.consent.errors }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{{ endif }}
+
+</div>
+{{ if form.consent.errors }}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+<script>
+    $('#myModal').modal('toggle');
+    $(document).ready(function () {
+        var probs = $('.probs');
+        probs.html("");
+    });
+</script>
+
+{{ endif }}
+<script>
+    var $otree_timer = $('.otree-timer');
+    $otree_timer.remove();
+    $otree_timer.removeClass('alert alert-warning');
+    $otree_timer.addClass('bs-callout bs-callout-danger');
+    $('.new_placeholder_for_otree_timer').append($otree_timer);
+    $otree_timer.show()
+</script>
+
+{{ endblock }}
+
+
+{{ block styles}}
+<style>
+    .box {
+        width: 100%;
+        /*height:200px;*/
+        float: left;
+        background-color: white;
+        /*margin:0px 10px 25px 15px;*/
+        margin-bottom: 30px;
+        border-radius: 5px;
+    }
+
+    .box1 {
+        background-color: #fcf8e3;
+        padding: 20px;
+    }
+
+    /*
+    .shadow1{
+      position:relative;
+    }*/
+    .shadow1 {
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+    }
+
+    .red {
+        color: red;
+    }
+</style>{{ endblock }}
