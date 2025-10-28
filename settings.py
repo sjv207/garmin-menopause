@@ -7,7 +7,15 @@ SESSION_CONFIGS = [
         app_sequence=['consent', 'solo_app', 'menopause', 'completion'],
         num_demo_participants=1,
         debug_mode=False,
-        use_browser_bots=True,
+        use_browser_bots=False,
+    ),
+    dict(
+        name='test_main_app',
+        display_name='TEST - Main Experiment (with hints)',
+        app_sequence=['consent', 'solo_app', 'menopause', 'completion'],
+        num_demo_participants=1,
+        debug_mode=True,
+        use_browser_bots=False,
     ),
     # dict(
     #     name='NoConsent',
@@ -64,8 +72,8 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = '1283572204412'
 
 # CONSTANTS
-TASK_TIME_SECONDS = 1*60
-TRIAL_TIME_SECONDS = 4*60
+TASK_TIME_SECONDS = 2*60
+TRIAL_TIME_SECONDS = 1*60
 
 FIXED_RATE = 5
 PIECE_RATE = 2

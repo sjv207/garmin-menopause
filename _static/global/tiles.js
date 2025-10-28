@@ -39,7 +39,7 @@ function liveRecv(data) {
     }
     if (data['debug']) {
         console.log("Adjusting tile size for debug mode.");
-        document.documentElement.style.setProperty('--tile-font-size', '15px');
+        document.documentElement.style.setProperty('--tile-font-size', '12px');
     }
 }
 
