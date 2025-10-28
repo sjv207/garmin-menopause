@@ -2,34 +2,35 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-        name='Tiles',
+        name='main_app',
+        display_name='Main Experiment',
         app_sequence=['consent', 'solo_app', 'menopause', 'completion'],
         num_demo_participants=1,
         debug_mode=False,
         use_browser_bots=True,
     ),
-    dict(
-        name='NoConsent',
-        display_name='TEST - no consent',
-        app_sequence=['solo_app'],
-        num_demo_participants=1,
-        debug_mode=True,
-        use_browser_bots=False,
-    ),
-    dict(
-        name='MenopauseNoConsent',
-        display_name='TEST - Survey, no consent',
-        app_sequence=['menopause'],
-        num_demo_participants=1,
-        use_browser_bots=False,
-    ),
-    dict(
-        name='CompletionNoConsent',
-        display_name='TEST - Completion, no consent',
-        app_sequence=['completion'],
-        num_demo_participants=1,
-        use_browser_bots=False,
-    ),
+    # dict(
+    #     name='NoConsent',
+    #     display_name='TEST - no consent',
+    #     app_sequence=['solo_app'],
+    #     num_demo_participants=1,
+    #     debug_mode=True,
+    #     use_browser_bots=False,
+    # ),
+    # dict(
+    #     name='MenopauseNoConsent',
+    #     display_name='TEST - Survey, no consent',
+    #     app_sequence=['menopause'],
+    #     num_demo_participants=1,
+    #     use_browser_bots=False,
+    # ),
+    # dict(
+    #     name='CompletionNoConsent',
+    #     display_name='TEST - Completion, no consent',
+    #     app_sequence=['completion'],
+    #     num_demo_participants=1,
+    #     use_browser_bots=False,
+    # ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
