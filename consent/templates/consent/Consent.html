@@ -2,7 +2,7 @@
 {{ load staticfiles otree_tags }}
 
 {{ block title }}
-
+Consent Page
 {{ endblock }}
 
 {{ block content }}
@@ -16,19 +16,52 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="box box1 shadow1">
-            <h3>Informed Consent Information</h3>
-            <p>This is a study on economic decision making.</p>
+            <p>You are invited to participate in an academic research study. Before you decide to participate in this
+                study, it is essential that you understand why the research is conducted and what it will involve.
+                Please take the time to read the <strong>GENERAL INFORMATION</strong> provided below.
 
-            <p>By proceeding with the experiment, you provide consent that you understand the information provided and
-                agree to participate in this study. You also understand that your participation is voluntary and you may
-                withdraw at any time.</p>
+            <p><u>Only start this study if you have 20 minutes to focus <strong>exclusively</strong> on it. Do not click
+                    off the study page once you have started, and do not take a break from the study, or you may time
+                    out.</u></p>
+
+            <p><strong>About this Study called FitToWork: How Health Data Can Power Productivity</strong>
+                If you choose to take part in the study, you will be asked to make economic decisions, i.e. decisions
+                involving money.</p>
+
+            <p></p>This study will take approximately 20 minutes.</p>
+
+            <p>You will receive a base payment of £5 + a possible additional payment, depending on your decisions and
+                the decisions of other participants.</p>
+
+            <p>Detailed instructions will follow when you start the study. You will ...</p>
+            <ul>
+                <li>...be compensated as outlined in the study advert if you finish all parts of the study, pass the
+                    built-in attention checks, and give consent to access to your Garmin data.</li>
+                <li>...complete different tasks and answer a follow-up questionnaire.</li>
+                <li>...receive clear instructions and accurate information on how your decisions will influence your
+                    payment.</li>
+                <li>...be free to withdraw your consent and discontinue participation in the study, without penalty, at
+                    any time up until study completion. You can with-draw by closing the browser window.</li>
+            </ul>
+
+            <p><strong>Consent</strong></p>
+            <p>Please read the following statements:</p>
+            <ul>
+                <li>I have read and understand the information provided above.</li>
+                <li>I understand that my participation is voluntary.</li>
+                <li>I understand that I may withdraw from and stop participating in the study at any time.</li>
+                <li>I understand that there will be no negative consequences for withdrawal.</li>
+                <li>I understand that once my data has been submitted in anonymised form, it cannot be withdrawn</li>
+            </ul>
 
             <p class='red'>
-                <i>{{form.consent}} I acknowledge that I have read the rules and privacy policy</i>
+                <i>{{form.consent}} I confirm that I have read the consent statements and agree to take part in this
+                    research study.</i>
             </p>
         </div>
     </div>
 </div>
+<p>If you do not agree with the consent statements, please close the browser and do not participate in this study. </p>
 <div class="new_placeholder_for_otree_timer" style="font-size: 1.5rem;"></div>
 {{ next_button }}
 
