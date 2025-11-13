@@ -17,14 +17,14 @@ SESSION_CONFIGS = [
         debug_mode=True,
         use_browser_bots=False,
     ),
-    # dict(
-    #     name='NoConsent',
-    #     display_name='TEST - no consent',
-    #     app_sequence=['solo_app'],
-    #     num_demo_participants=1,
-    #     debug_mode=True,
-    #     use_browser_bots=False,
-    # ),
+    dict(
+        name='Regster',
+        display_name='Registratgion app',
+        app_sequence=['solo_app'],
+        num_demo_participants=1,
+        debug_mode=True,
+        use_browser_bots=False,
+    ),
     # dict(
     #     name='MenopauseNoConsent',
     #     display_name='TEST - Survey, no consent',
@@ -54,6 +54,17 @@ PARTICIPANT_FIELDS = ["Stage1_star_rating", "Stage1_count",
                       "Stage2_star_rating", "Stage2_count",
                       "Stage3_star_rating", "Stage3_count",]
 SESSION_FIELDS = []
+
+ROOMS = [
+    dict(
+        name="Room1",
+        display_name="Room1",
+    ),
+    dict(
+        name="Room2",
+        display_name="Room2",
+    ),
+]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

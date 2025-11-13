@@ -48,18 +48,6 @@ services:
     networks:
       - garmin_menop_network
 
-  redis:
-    image: redis
-    command: "redis-server"
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "3"
-    restart: always
-    read_only: true
-    networks:
-      - garmin_menop_network
-
 volumes:
   database:
   otree-resetdb:
