@@ -11,8 +11,8 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='test_main_app',
-        display_name='TEST - Main Experiment (with hints)',
-        app_sequence=['consent', 'solo_app', 'menopause', 'completion'],
+        display_name='TEST - Main Experiment (with hints), NO consent',
+        app_sequence=['solo_app', 'menopause', 'completion'],
         num_demo_participants=1,
         debug_mode=True,
         use_browser_bots=False,
@@ -50,6 +50,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00,
     participation_fee=1.00, doc="",
     PAIR_MATCH_PAY=0.05,
+    COOP_PAIR_MATCH_PAY=0.0125,
     TRIAL_TILE_GRID_TIMEOUT_SECONDS=60,
     TILE_GRID_TIMEOUT_SECONDS=120,
     

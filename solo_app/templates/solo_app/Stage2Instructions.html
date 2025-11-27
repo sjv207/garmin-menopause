@@ -2,14 +2,32 @@
 {{ load otree static }}
 
 {{ block title }}
-Stage 2 Instructions
+Stage 2 - Team payment
 {{ endblock }}
 
 {{ block content }}
-<p>Now Stage 1 of the study (Piece-Rate payout) takes place, in which you <strong>receive {{C.PIECE_RATE}} ECU for each correctly solved 
-    tile game</strong>. You have <strong>2 minutes</strong> for this task.</p>
 
-<p>When you are ready, please click on "Next" and Stage 2 will start automatically.</p>
+
+<p>In this stage, you will again complete the same real-effort task.</p>
+
+<p>You will have <strong>{{session.config.TILE_GRID_TIMEOUT_SECONDS}}</strong> seconds to find as many correctly matched
+    pairs as possible.</p>
+
+<p>You are now randomly assigned to a <strong>team of four participants</strong>.</p>
+
+<p>You will not know who the other team members are, and they will not know who you are. All decisions and results
+    remain <strong>completely anonymous.</strong></p>
+
+<p>Your payment for this stage depends on your team's combined performance. You will earn
+    <strong>£{{session.config.COOP_PAIR_MATCH_PAY}} for each correctly matched pair</strong> found by you or any of your
+    three teammates. Each team member plays their own set of games, but all correct matches across the team are added
+    together to determine your total payment for each team member.
+</p>
+
+<p>If this stage is randomly selected for payment at the end of the study, your bonus will be Bonus = 
+    {{session.config.COOP_PAIR_MATCH_PAY}} x (All correct matches found by you or one of the 3 other team members).</p>
+
+<p>When you are ready, please click <strong>“Next.”</strong> The stage will then start automatically.</p>
 
 {{ next_button}}
 
