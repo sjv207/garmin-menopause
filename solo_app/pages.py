@@ -11,10 +11,6 @@ class TrialInstructions(Page):
 
 class Trial(Page):
     @staticmethod
-    def before_next_page(player, timeout_happened):
-        pass
-
-    @staticmethod
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Trial")
 
@@ -28,12 +24,6 @@ class Stage1Instructions(Page):
 
 
 class Stage1(Page):
-    @staticmethod
-    def before_next_page(player, timeout_happened):
-        pass
-        # player.calc_payoff()
-        # player.calc_final_payoff()
-
     @staticmethod
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Stage1")
@@ -49,12 +39,6 @@ class Stage2Instructions(Page):
 
 class Stage2(Page):
     @staticmethod
-    def before_next_page(player, timeout_happened):
-        pass
-        # player.calc_payoff()
-        # player.calc_final_payoff()
-
-    @staticmethod
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Stage2")
 
@@ -68,12 +52,6 @@ class Stage3Instructions(Page):
 
 
 class Stage3(Page):
-    @staticmethod
-    def before_next_page(player, timeout_happened):
-        pass
-        # player.calc_payoff()
-        # player.calc_final_payoff()
-
     @staticmethod
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Stage3")

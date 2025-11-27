@@ -49,8 +49,9 @@ SESSION_CONFIGS = [
 SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00,
     participation_fee=1.00, doc="",
-    PAIR_MATCH_PAY=0.05,
+    SOLO_PAIR_MATCH_PAY=0.05,
     COOP_PAIR_MATCH_PAY=0.0125,
+    COMP_PAIR_MATCH_PAY=0.20,
     TRIAL_TILE_GRID_TIMEOUT_SECONDS=60,
     TILE_GRID_TIMEOUT_SECONDS=120,
     

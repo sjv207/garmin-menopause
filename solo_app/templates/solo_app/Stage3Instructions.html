@@ -2,36 +2,42 @@
 {{ load otree static }}
 
 {{ block title }}
-Stage 3 Instructions
+Stage 3 - Competition
 {{ endblock }}
 
 {{ block content }}
-<p>Now Stage 1 of the study (Fixed payout) takes place, in which you <strong>receive {{C.FIXED_RATE}} ECU</strong>. You
-    have <strong>2 minutes</strong> for this task.</p>
 
 
-<p>As in the previous stages, you have <strong>2 minutes</strong> to correctly solve as many tile games as possible.
-    Your payout for this stage will depend on your performance relative to the performance of a group
-    of participants.</p>
+<p>In this stage, you will again complete the same real-effort task.</p>
 
-<p><strong><u>Division into groups:</u></strong> Your are now randomly assigned to a group of 4.</p>
+<p>You will have <strong>{{session.config.TILE_GRID_TIMEOUT_SECONDS}} seconds</strong> to find as many correctly matched
+    pairs as possible.</p>
 
-<strong>You will not find out who the other participants in your group are either during or after the experiment. So,
-    all decisions will remain anonymous.</strong>
-</p>
+<p>You are now again randomly assigned to a <strong>different group of four participants</strong>, and it is a different
+    group than in the previous stage.</p>
 
-<p><strong><u>Payoff:</u></strong> If Stage 3 is the stage selected for payout, then your payoff will depend on how many
-    tile games you have correctly solved in this stage compared to the other 3 participants in your group. </p>
+<p>You will not know who the other group members are, and they will not know who you are.</p>
 
+<p>All decisions and results remain <strong>completely anonymous.</strong></p>
 
-<p>The TWO participants who have the largest number of correct matrices are the <strong>winners of the
-        competition</strong>. Each of them receives <strong>{{C.COMPETITION_RATE}} ECU for each correct matrix</strong>,
-    while the other TWO participants in the group <strong>receive no payout</strong>. The winning participants are
-    determined randomly if there is a tie between two participants.
-</p>
+<p>Your <strong>payment</strong> for this stage will depend on how your performance compares with the other members of
+    your group.</p>
 
-<p>When you are ready, please click on "Next" and Stage 3 will start automatically.</p>
+<ul>
+    <li>The <strong>participant who finds the highest number of correct pairs</strong> in the group will receive
+        <strong>£{{session.config.COMP_PAIR_MATCH_PAY}} for each pair they personally matched correctly</strong>.
+    </li>
+    <li>The remaining group members will <strong>not receive any payment</strong> for this stage.</li>
+    <li>In case of a tie for first place, the winner will be chosen <strong>at random</strong> among the top performers.
+    </li>
+</ul>
+
+<p>If this stage is randomly selected for payment at the end of the study, your bonus will be determined based on this
+    rule. </p>
+
+<p>When you are ready to begin, please click <strong>“Next.”</strong> The stage will then start automatically.</p>
+
 
 {{ next_button}}
 
-{{ endblock }}
+{{ endblock }}pper
