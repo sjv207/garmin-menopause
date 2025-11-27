@@ -3,7 +3,7 @@ from otree.api import Bot, Submission
 from .pages import (TrialInstructions, Trial,
                     Stage1Instructions, Stage1,
                     Stage2Instructions, Stage2,
-                    Stage3Instructions, Stage3,)
+                    Stage3Instructions, Stage3, Stage3Belief)
 
 
 class PlayerBot(Bot):
@@ -26,3 +26,5 @@ class PlayerBot(Bot):
         Stage3.live_method(self.player, {'status': 'success', 'star_rating': 5.0})
         Stage3.live_method(self.player, {'status': 'success', 'star_rating': 2.5})
         yield Submission(Stage3, {}, check_html=False)
+
+        yield Stage3Belief, dict(belief='upper_middle_25')
