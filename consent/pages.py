@@ -30,10 +30,14 @@ class Consent(Page):
             return upcoming_apps[-1]
 
 
+class Information(Page):
+    pass
+
+
 class Introduction(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return {"conversion_rate": player.conversion_rate()[1], "ecus": player.conversion_rate()[0]}
 
 
-page_sequence = [Consent, Introduction]
+page_sequence = [Consent, Information, Introduction]
