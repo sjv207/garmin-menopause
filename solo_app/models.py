@@ -6,7 +6,7 @@ from otree.api import (
     BasePlayer,
 )
 import logging
-from settings import TASK_TIME_SECONDS, TRIAL_TIME_SECONDS, FIXED_RATE, PIECE_RATE, COMPETITION_RATE
+
 
 logger = logging.getLogger('memMatchModels')
 
@@ -17,13 +17,7 @@ author = 'Scott Vincent'
 class C(BaseConstants):
     NAME_IN_URL = 'app'
     PLAYERS_PER_GROUP = None
-    # Running time of experiment, in minutes
-    TASK_TIME_SECONDS = TASK_TIME_SECONDS
-    TRIAL_TIME_SECONDS = TRIAL_TIME_SECONDS
     NUM_ROUNDS = 1
-    FIXED_RATE = FIXED_RATE
-    PIECE_RATE = PIECE_RATE
-    COMPETITION_RATE = COMPETITION_RATE
 
 
 class Subsession(BaseSubsession):

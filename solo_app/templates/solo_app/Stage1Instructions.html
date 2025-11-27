@@ -2,14 +2,21 @@
 {{ load otree static }}
 
 {{ block title }}
-Stage 1 Instructions
+Stage 1 - Piece-rate payment
 {{ endblock }}
 
 {{ block content }}
-<p>Now Stage 1 of the study (Fixed payout) takes place, in which you <strong>receive {{C.FIXED_RATE}} ECU</strong>. You
-    have <strong>2 minutes</strong> for this task.</p>
 
-<p>When you are ready, please click on "Next" and Stage 1 will start automatically.</p>
+<p>In this stage, you will complete the same real-effort task as in the trial round.</p>
+
+<p>For <strong>each correctly matched pair</strong>, you will earn <strong>£{{session.config.PAIR_MATCH_PAY}}</strong>.
+</p>
+
+<p>Your total earnings in this stage will therefore depend on how many correct matches you find within a
+    <strong>{{session.config.TILE_GRID_TIMEOUT_SECONDS}} seconds time limit</strong>.</p>
+
+<p>When you are ready to begin, please click <strong>“Next.”</strong> The stage will then start automatically.</p>
+
 
 {{ next_button}}
 

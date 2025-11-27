@@ -10,17 +10,17 @@ class TrialInstructions(Page):
 
 
 class Trial(Page):
-    timeout_seconds = C.TRIAL_TIME_SECONDS
-
     @staticmethod
     def before_next_page(player, timeout_happened):
         pass
-        # player.calc_payoff()
-        # player.calc_final_payoff()
 
     @staticmethod
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Trial")
+
+    @staticmethod
+    def get_timeout_seconds(player):
+        return player.session.config['TRIAL_TILE_GRID_TIMEOUT_SECONDS']
 
 
 class Stage1Instructions(Page):
@@ -28,8 +28,6 @@ class Stage1Instructions(Page):
 
 
 class Stage1(Page):
-    timeout_seconds = C.TASK_TIME_SECONDS
-
     @staticmethod
     def before_next_page(player, timeout_happened):
         pass
@@ -40,14 +38,16 @@ class Stage1(Page):
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Stage1")
 
+    @staticmethod
+    def get_timeout_seconds(player):
+        return player.session.config['TILE_GRID_TIMEOUT_SECONDS']
+
 
 class Stage2Instructions(Page):
     pass
 
 
 class Stage2(Page):
-    timeout_seconds = C.TASK_TIME_SECONDS
-
     @staticmethod
     def before_next_page(player, timeout_happened):
         pass
@@ -58,14 +58,16 @@ class Stage2(Page):
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Stage2")
 
+    @staticmethod
+    def get_timeout_seconds(player):
+        return player.session.config['TILE_GRID_TIMEOUT_SECONDS']
+
 
 class Stage3Instructions(Page):
     pass
 
 
 class Stage3(Page):
-    timeout_seconds = C.TASK_TIME_SECONDS
-
     @staticmethod
     def before_next_page(player, timeout_happened):
         pass
@@ -75,6 +77,10 @@ class Stage3(Page):
     @staticmethod
     def live_method(player: Player, data):
         return player.live_method_tiles(data, "Stage3")
+
+    @staticmethod
+    def get_timeout_seconds(player):
+        return player.session.config['TILE_GRID_TIMEOUT_SECONDS']
 
 
 page_sequence = [TrialInstructions, Trial,

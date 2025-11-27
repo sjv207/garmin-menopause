@@ -7,8 +7,8 @@ Trial round instructions
 
 {{ block content }}
 
-<p>You are about to enter a trial round and will have <strong>1 minute</strong> to familiarize yourself with the task.
-    The trial round is not payoff relevant.</p>
+<p>You are about to enter a trial round and will have <strong>{{session.config.TRIAL_TILE_GRID_TIMEOUT_SECONDS}}
+        seconds</strong> to familiarize yourself with the task. The trial round is not payoff relevant.</p>
 
 {{ include "global/tile_instructions.html" }}
 
@@ -16,13 +16,17 @@ Trial round instructions
     moves, the number of moves, and the number of tiles matched</p>
 
 
+<p>After you complete one game by finding all 10 matches in the 4x5 grid, a new game will automatically appear. This
+    will continue until your allotted time runs out.</p>
+
 <div style="text-align: center;">
     <img src="{% static 'global/MemMatchingScreenShot.png' %}" alt="Tile Game" />
 </div>
 
 
 &nbsp;
-<p>After you have completed the trial round, you will be given further instructions about the payoff-relevant stages.</p>
+<p>After you have completed the trial round, you will be given further instructions about the payoff-relevant stages.
+</p>
 
 <button class="btn btn-primary">Start trial</button>
 
