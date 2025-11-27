@@ -61,7 +61,12 @@ class Stage3(Page):
         return player.session.config['TILE_GRID_TIMEOUT_SECONDS']
 
 
+class Stage3Belief(Page):
+    form_model = 'player'
+    form_fields = ['belief']
+
+
 page_sequence = [TrialInstructions, Trial,
                  Stage1Instructions, Stage1,
                  Stage2Instructions, Stage2,
-                 Stage3Instructions, Stage3,]
+                 Stage3Instructions, Stage3, Stage3Belief]

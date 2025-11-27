@@ -4,6 +4,7 @@ from otree.api import (
     BaseSubsession,
     BaseGroup,
     BasePlayer,
+    widgets,
 )
 import logging
 
@@ -39,7 +40,7 @@ class Player(BasePlayer):
             ["lower_middle_25", "In the lower-middle 25%"],
             ["bottom_25", "In the bottom 25% (worse than most participants)"],
         ],
-        widget=models.RadioSelect,
+        widget=widgets.RadioSelect,
         label="How do you think your performance ranks compared to all other participants?"
     )
 
