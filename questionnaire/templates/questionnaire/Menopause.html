@@ -1,0 +1,53 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .form-check-input {
+        margin-left: 0;
+    }
+</style>
+
+<p>Below you will find a list of symptoms.</p>
+<p>Please indicate how severe each symptom has been <strong>over the past month.</strong></p>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td></td>
+            <td>None</td>
+            <td>Mild</td>
+            <td>Moderate</td>
+            <td>Severe</td>
+            <td>Very Severe</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{ for field in form }}
+            {{ if field.name != 'q2_dryness' or player.legal_gender == 'Female'  }}
+                <tr>
+                    <th scope="row" width="40%">
+                        {{ field.label}}
+                    </th>
+                    {{ for choice in field }}
+                    <td width="80px">{{ choice }}</td>
+                    {{ endfor }}
+                </tr>
+            {{ endif }}
+        {{ endfor }}
+    </tbody>
+</table>
+
+
+
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,61 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Part B - Menstrual Characteristics and Cycle Regularity</h3>
+
+{{ formfield 'last_period_time' }}
+
+{{ formfield 'last_period_date' }}
+
+{{ formfield 'period_length' }}
+
+{{ formfield 'bleeding_amount' }}
+
+{{ formfield 'cycle_regularity' }}
+
+<p><b>During your period, how much do menstrual symptoms interfere with your daily activities?</b></p>
+{{ formfield 'symptom_interference' }}
+
+<hr>
+
+<h4>Menstrual Symptoms Experienced in the Past 3 Months</h4>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Symptom</th>
+        <th>Response</th>
+    </tr>
+    <tr>
+        <td>Abdominal cramps or pelvic pain</td>
+        <td>{{ formfield 'cramps' }}</td>
+    </tr>
+    <tr>
+        <td>Headaches or migraines</td>
+        <td>{{ formfield 'headaches' }}</td>
+    </tr>
+    <tr>
+        <td>Mood swings or irritability</td>
+        <td>{{ formfield 'mood_swings' }}</td>
+    </tr>
+    <tr>
+        <td>Trouble concentrating</td>
+        <td>{{ formfield 'trouble_concentrating' }}</td>
+    </tr>
+    <tr>
+        <td>Breast tenderness or bloating</td>
+        <td>{{ formfield 'breast_tenderness' }}</td>
+    </tr>
+</table>
+
+{{ formfield 'absent_periods' }}
+
+
+{{ next_button }}
+
+{{ endblock }}

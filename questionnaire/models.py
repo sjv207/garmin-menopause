@@ -11,10 +11,20 @@ logger = logging.getLogger(__name__)
 author = 'Scott Vincent'
 
 
+def make_field_5(label: str, blank: bool = False):
+    return models.IntegerField(label=label, choices=C.LIKERT5, widget=widgets.RadioSelect, blank=blank)
+
+
+def make_field_3(label: str):
+    return models.IntegerField(label=label, choices=C.LIKERT3, widget=widgets.RadioSelect)
+
+
 class C(BaseConstants):
     NAME_IN_URL = 'questionnaire'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
+    LIKERT5 = [[i, ''] for i in range(6)]
+    LIKERT3 = [[i, ''] for i in range(4)]
 
 
 class Subsession(BaseSubsession):
@@ -381,4 +391,319 @@ class Player(BasePlayer):
         label="On average, how physically demanding are your typical daily activities (including work)? (1 = Not at all, 5 = Extremely)",
         choices=[1, 2, 3, 4, 5],
         widget=widgets.RadioSelectHorizontal
+    )
+
+    #
+    # Menopause page
+    #
+    q2_flush = make_field_5("Hot flushes, sweating (episodes of sweating)")
+    q2_heart = make_field_5(
+        "Heart discomfort (unusual awareness of heartbeat, heart skipping, heart racing, tightness)")
+    q2_sleep = make_field_5(
+        "Sleep problems (difficulty in falling asleep, difficulty in sleeping through, waking up early)")
+    q2_mood = make_field_5("Depressive mood (feeling down, sad, on the verge of tears, lack of drive, mood swings)")
+    q2_irritabiity = make_field_5("Irritability (feeling nervous, inner tension, feeling aggressive) ")
+    q2_anxiety = make_field_5("Anxiety (inner restlessness, feeling panicky)")
+    q2_exhaustion = make_field_5(
+        "Physical and mental exhaustion (general decrease in performance, impaired memory, decrease in concentration, forgetfulness)")
+    q2_sex = make_field_5("Sexual problems (change in sexual desire, in sexual activity and satisfaction)")
+    q2_bladder = make_field_5(
+        "Bladder problems (difficulty in urinating, increased need to urinate, bladder incontinence)")
+    q2_discomfort = make_field_5("Joint and muscular discomfort (pain in the joints, rheumatoid complaints)")
+    q2_dryness = make_field_5(
+        "Dryness of vagina (sensation of dryness or burning in the vagina, difficulty with sexual intercourse)",
+        blank=True)
+    
+    #
+    # Andropause
+    #
+
+    # Common response options
+    AMS_CHOICES = [
+        "1",  # None
+        "2",  # Mild
+        "3",  # Moderate
+        "4",  # Severe
+        "5",  # Very severe
+        "Prefer not to answer"
+    ]
+
+    # Psychological domain
+    ams1 = models.StringField(
+        label="Decline in your feeling of general well-being (mood, life satisfaction, general interest)",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams2 = models.StringField(
+        label="Feeling nervous, inner tension, anxiety",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams3 = models.StringField(
+        label="Physical exhaustion / lacking vitality (general decrease in performance, reduced activity)",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams4 = models.StringField(
+        label="Decrease in muscular strength or endurance",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams5 = models.StringField(
+        label="Depressive mood (feeling down, sad, lack of motivation)",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    # Somato-vegetative (physical) domain
+    ams6 = models.StringField(
+        label="Joint and muscular pain (lower back pain, joint pain, limb pain, general stiffness)",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams7 = models.StringField(
+        label="Excessive sweating (unexpected or without physical exertion)",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams8 = models.StringField(
+        label="Sleep problems (difficulty falling asleep, difficulty sleeping through)",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams9 = models.StringField(
+        label="Increased need for sleep, often feeling tired",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams10 = models.StringField(
+        label="Irritability",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams11 = models.StringField(
+        label="Nervousness",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    # Sexual domain
+    ams12 = models.StringField(
+        label="Decrease in beard growth",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams13 = models.StringField(
+        label="Decrease in ability/frequency to perform sexually",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams14 = models.StringField(
+        label="Decrease in morning erections",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams15 = models.StringField(
+        label="Decrease in sexual desire / libido",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams16 = models.StringField(
+        label="Feeling that you have passed your peak",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+    ams17 = models.StringField(
+        label="Decrease in enjoyment of life or satisfaction with life in general",
+        choices=AMS_CHOICES,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    #
+    # General Health page
+    #
+    q3_concentrate = make_field_3("Been able to concentrate on what you're doing?")
+    q3_worry = make_field_3("Lost much sleep over worry?")
+    q3_useful = make_field_3("Felt you were playing a useful part in things?")
+    q3_capable = make_field_3("Felt capable of making decisions about things?")
+    q3_strain = make_field_3("Felt constantly under strain?")
+    q3_difficulties = make_field_3("Felt you couldn't overcome your difficulties?")
+    q3_enjoy = make_field_3("Been able to enjoy your normal day-to-day activities?")
+    q3_face_up = make_field_3("Been able to face up to your problems?")
+    q3_unhappy = make_field_3("Been feeling unhappy and depressed?")
+    q3_confidence = make_field_3("Been losing confidence in yourself?")
+    q3_worthless = make_field_3("Been thinking of yourself as a worthless person?")
+    q3_happy = make_field_3("Been feeling reasonably happy, all things considered?")
+
+    # -------------------------------
+    # PART A – SCREENING
+    # -------------------------------
+    menopause_status = models.StringField(
+        label="Have you reached menopause yet? (Menopause = 12 months since last menstrual period)",
+        choices=[
+            "Post-menopause - my last menstrual period was over a year ago",
+            "Peri-menopause - I've had a period within 12 months and have symptoms",
+            "No - I am still menstruating and not experiencing symptoms of menopause",
+            "Don't know",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    # -------------------------------
+    # PART B – MENSTRUAL CHARACTERISTICS
+    # -------------------------------
+
+    last_period_time = models.StringField(
+        label="When was your last menstrual period?",
+        choices=[
+            "Within the past 3 months",
+            "Between 3 and 6 months ago",
+            "Between 6 and 12 months ago",
+            "Over 12 months ago",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    last_period_date = models.StringField(
+        label="What date did your last period start? (DD/MM/YYYY, estimate if unsure)",
+        blank=True
+    )
+
+    period_length = models.StringField(
+        label="On average, how many days does your period usually last?",
+        choices=[
+            "1-2 days", "3-4 days", "5-6 days", "7 days or longer", "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    bleeding_amount = models.StringField(
+        label="How would you describe the typical amount of menstrual bleeding you experience?",
+        choices=[
+            "Very light", "Light", "Moderate", "Heavy", "Very heavy", "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    cycle_regularity = models.StringField(
+        label="How regular are your menstrual cycles?",
+        choices=[
+            "Regular (every 24-35 days)",
+            "Somewhat irregular",
+            "Very irregular or unpredictable",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    symptom_interference = models.IntegerField(
+        label="During your period, how much do menstrual symptoms interfere with daily activities?",
+        choices=[1,2,3,4,5],
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    # Menstrual symptoms table
+    # Values: "Never", "Occasionally", "Often", "Always", "Prefer not to say"
+    symptom_choices = [
+        "Never", "Occasionally", "Often", "Always", "Prefer not to say"
+    ]
+
+    cramps = models.StringField(label="Abdominal cramps or pelvic pain", choices=symptom_choices)
+    headaches = models.StringField(label="Headaches or migraines", choices=symptom_choices)
+    mood_swings = models.StringField(label="Mood swings or irritability", choices=symptom_choices)
+    trouble_concentrating = models.StringField(label="Trouble concentrating", choices=symptom_choices)
+    breast_tenderness = models.StringField(label="Breast tenderness or bloating", choices=symptom_choices)
+
+    absent_periods = models.StringField(
+        label="Have you ever experienced absent or erratic periods (not due to pregnancy or perimenopause)?",
+        choices=[
+            "Yes, in the past but not recently",
+            "Yes, recently (within the last year)",
+            "No",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    # -------------------------------
+    # PART C – REASONS PERIODS STOPPED
+    # -------------------------------
+
+    reason_contraceptive = models.BooleanField(label="Hormonal contraceptive use", blank=True)
+    reason_menopause = models.BooleanField(label="Menopause", blank=True)
+    reason_pregnancy = models.BooleanField(label="Pregnancy or breastfeeding", blank=True)
+    reason_surgery = models.BooleanField(label="Surgery (e.g. hysterectomy)", blank=True)
+    reason_chemo = models.BooleanField(label="Chemotherapy or radiation therapy", blank=True)
+    reason_eating = models.BooleanField(label="Eating disorder", blank=True)
+    reason_endocrine = models.BooleanField(label="Pituitary or endocrine disorder", blank=True)
+    reason_pcos = models.BooleanField(label="Polycystic ovary syndrome (PCOS)", blank=True)
+    reason_none = models.BooleanField(label="No obvious reason", blank=True)
+    reason_other = models.StringField(label="Other reason (please describe)", blank=True)
+
+    # -------------------------------
+    # PART D – MENOPAUSE & HRT
+    # -------------------------------
+    age_menopause = models.IntegerField(
+        label="At what age did you reach menopause? (0 = unsure)",
+        min=0, max=70, blank=True
+    )
+
+    uterus_ovaries_removed = models.StringField(
+        label="Have you had surgery that removed your uterus or ovaries?",
+        choices=[
+            "Yes, both ovaries removed",
+            "Yes, uterus removed",
+            "Yes, one ovary removed",
+            "No",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    current_hrt = models.StringField(
+        label="Are you currently using hormone replacement therapy (HRT)?",
+        choices=["Yes", "No", "Prefer not to say"],
+        widget=widgets.RadioSelect
+    )
+
+    # -------------------------------
+    # PART E – CONTRACEPTIVES / HORMONE TREATMENT
+    # -------------------------------
+    used_combined = models.BooleanField(label="Combined contraceptive pill, patch, ring", blank=True)
+    used_progestin = models.BooleanField(label="Progesterone-only pill, injection, ring, implant", blank=True)
+    used_ius = models.BooleanField(label="Hormonal intrauterine system (IUS, e.g., Mirena)", blank=True)
+    used_emergency = models.BooleanField(label="Emergency contraception", blank=True)
+    used_none = models.BooleanField(label="None of the above", blank=True)
+
+    # -------------------------------
+    # PART F – PREGNANCY CHECK
+    # -------------------------------
+    pregnant = models.StringField(
+        label="Are you currently pregnant?",
+        choices=["Yes", "No", "Prefer not to say"],
+        widget=widgets.RadioSelect
+    )
+
+    recent_pregnancy = models.StringField(
+        label="Have you been pregnant in the past 12 months?",
+        choices=["Yes, within the past 12 months", "No", "Prefer not to say"],
+        widget=widgets.RadioSelect
+    )
+
+    postpartum_weeks = models.StringField(
+        label="If yes: how many weeks/months postpartum are you?",
+        blank=True
+    )
+
+    breastfeeding = models.StringField(
+        label="Are you currently breastfeeding?",
+        choices=[
+            "Yes, exclusively",
+            "Yes, partially",
+            "No",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
     )

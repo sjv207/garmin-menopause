@@ -1,0 +1,28 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Part E - Contraceptive & Hormonal Treatments</h3>
+
+<p>
+The next questions are about contraceptives and hormonal treatments.  
+Please answer regardless of the reason you may use them.
+</p>
+
+<p><b>Select all that apply (past 2 months):</b></p>
+
+{{ formfield 'used_combined' }}
+{{ formfield 'used_progestin' }}
+{{ formfield 'used_ius' }}
+{{ formfield 'used_emergency' }}
+{{ formfield 'used_none' }}
+
+
+{{ next_button }}
+
+{{ endblock }}

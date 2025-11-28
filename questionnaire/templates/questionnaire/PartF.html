@@ -1,0 +1,22 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Part F - Pregnancy and Postpartum</h3>
+
+{{ formfield 'pregnant' }}
+
+{{ formfield 'recent_pregnancy' }}
+
+{{ formfield 'postpartum_weeks' }}
+
+{{ formfield 'breastfeeding' }}
+
+{{ next_button }}
+
+{{ endblock }}

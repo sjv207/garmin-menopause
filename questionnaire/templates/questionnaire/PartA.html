@@ -1,0 +1,18 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Part A - Screening: Menstrual Status</h3>
+
+<p>Menopause is officially defined as <b>12 months since your last natural menstrual period</b>.</p>
+
+{{ formfield 'menopause_status' }}
+
+{{ next_button }}
+
+{{ endblock }}

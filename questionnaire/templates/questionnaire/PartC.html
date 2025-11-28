@@ -1,0 +1,28 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Part C - Reasons for Periods Stopping</h3>
+
+<p>Select all that apply:</p>
+
+{{ formfield 'reason_contraceptive' }}
+{{ formfield 'reason_menopause' }}
+{{ formfield 'reason_pregnancy' }}
+{{ formfield 'reason_surgery' }}
+{{ formfield 'reason_chemo' }}
+{{ formfield 'reason_eating' }}
+{{ formfield 'reason_endocrine' }}
+{{ formfield 'reason_pcos' }}
+{{ formfield 'reason_none' }}
+{{ formfield 'reason_other' }}
+
+
+{{ next_button }}
+
+{{ endblock }}

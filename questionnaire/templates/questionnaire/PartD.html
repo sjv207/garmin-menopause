@@ -1,0 +1,20 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Part D - Menopause & Hormone Therapy (HRT)</h3>
+
+{{ formfield 'age_menopause' }}
+
+{{ formfield 'uterus_ovaries_removed' }}
+
+{{ formfield 'current_hrt' }}
+
+{{ next_button }}
+
+{{ endblock }}
