@@ -15,7 +15,7 @@ class PlayerBot(Bot):
             'transgender': "No",
             'legal_sex': "Male",
             'nationality': "American",
-            'ethnicity': "Not Hispanic or Latino",
+            'ethnicity': "White: Irish",
             'children': "No",
             'height_cm': 175,
             'height_prefer_no': False,

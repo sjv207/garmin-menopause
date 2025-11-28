@@ -4,7 +4,7 @@ SESSION_CONFIGS = [
     dict(
         name='main_app',
         display_name='Main Experiment',
-        app_sequence=['consent', 'solo_app', 'menopause', 'completion'],
+        app_sequence=['consent', 'solo_app', 'questionnaire', 'completion'],
         num_demo_participants=1,
         debug_mode=False,
         use_browser_bots=False,
@@ -12,7 +12,7 @@ SESSION_CONFIGS = [
     dict(
         name='test_main_app',
         display_name='TEST - Main Experiment (with hints), NO consent',
-        app_sequence=['solo_app', 'menopause', 'completion'],
+        app_sequence=['solo_app', 'questionnaire', 'completion'],
         num_demo_participants=1,
         debug_mode=True,
         use_browser_bots=False,

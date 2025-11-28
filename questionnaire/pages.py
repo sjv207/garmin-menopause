@@ -7,21 +7,27 @@ logger = logging.getLogger(__name__)
 
 class Demographics(Page):
     form_model = 'player'
-
-    def get_form_fields(player):
-        fields = [
-            'age', 'gender', 'transgender', 'legal_sex',
-            'nationality', 'ethnicity', 'children',
-            'height_cm', 'height_prefer_no',
-            'weight_kg', 'weight_prefer_no',
-            'attention_check'
-        ]
-
-        # Show text box only if Non-binary selected
-        if player.gender == "Non-binary (please specify if you wish)":
-            fields.insert(fields.index('transgender'), 'gender_nonbinary_text')
-
-        return fields
+    form_fields = [
+        'age', 'gender', 'transgender', 'legal_sex',
+        'nationality', 'ethnicity', 'children',
+        'height_cm', 'height_prefer_no',
+        'weight_kg', 'weight_prefer_no',
+        'attention_check'
+    ]
 
 
-page_sequence = [Demographics]
+class Employment(Page):
+    form_model = 'player'
+    form_fields = [
+        'employment_status',
+        'employment_other_text',
+        'work_arrangement',
+        'work_sector',
+        'work_sector_other_text',
+        'income',
+        'weekly_hours',
+        'performance_rating'
+    ]
+
+
+page_sequence = [Demographics, Employment]

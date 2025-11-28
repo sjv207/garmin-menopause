@@ -26,6 +26,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    #
+    # Demographics page
+    #
     age = models.IntegerField(
         min=0,
         max=120,
@@ -110,3 +113,82 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    #
+    # Employment page
+    #
+    employment_status = models.StringField(
+        label="Which of the following best describes your current employment situation?",
+        choices=[
+            "Employed full-time",
+            "Employed part-time",
+            "Self-employed / Freelancer",
+            "Currently unemployed",
+            "Student",
+            "Retired",
+            "Other (please specify)"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    employment_other_text = models.StringField(blank=True)
+
+    work_arrangement = models.StringField(
+        label="How would you describe your usual work arrangement?",
+        choices=[
+            "Fully on-site",
+            "Fully remote / work from home",
+            "Hybrid (mix of home and on-site)",
+            "Not applicable (e.g., not currently working)"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    work_sector = models.StringField(
+        label="In which sector do you currently work (or have most recently worked)?",
+        choices=[
+            "Public sector (e.g., education, healthcare, government)",
+            "Private sector (e.g., business, industry, finance)",
+            "Non-profit or charity sector",
+            "Academic or research institution",
+            "Other (please specify)",
+            "Not applicable"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    work_sector_other_text = models.StringField(blank=True)
+
+    income = models.StringField(
+        label="What is your approximate monthly net income (after taxes) in GBP (£)?",
+        choices=[
+            "Less than £1,000",
+            "£1,000-£1,999",
+            "£2,000-£2,999",
+            "£3,000-£3,999",
+            "£4,000-£4,999",
+            "£5,000 or more",
+            "Prefer not to say"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    weekly_hours = models.StringField(
+        label="On average, how many hours per week do you work (including paid and unpaid overtime)?",
+        choices=[
+            "Fewer than 10 hours",
+            "10-19 hours",
+            "20-29 hours",
+            "30-39 hours",
+            "40 hours or more",
+            "Not applicable"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    performance_rating = models.IntegerField(
+        label="Over the past month, how would you rate your typical work performance compared to your usual level?",
+        choices=[1, 2, 3, 4, 5],
+        widget=widgets.RadioSelect
+    )
+

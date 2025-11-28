@@ -1,0 +1,31 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<p>Please answer the following questions about your employment and work situation.</p>
+
+{{ formfield 'employment_status' }}
+
+{{ formfield 'employment_other_text' }}
+
+{{ formfield 'work_arrangement' }}
+
+{{ formfield 'work_sector' }}
+
+{{ formfield 'work_sector_other_text' }}
+
+{{ formfield 'income' }}
+
+{{ formfield 'weekly_hours' }}
+
+{{ formfield 'performance_rating' }}
+
+
+{{ next_button }}
+
+{{ endblock }}

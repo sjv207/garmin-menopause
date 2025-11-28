@@ -1,0 +1,44 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Demographics
+{{ endblock }}
+
+{{ block content }}
+<p>Please answer the following questions.</p>
+
+{{ formfield 'age' }}
+
+{{ formfield 'gender' }}
+
+{{ formfield 'transgender' }}
+{{ formfield 'legal_sex' }}
+
+<p><b>Nationality</b></p>
+{{ formfield 'nationality' }}
+<p><i>(Insert dropdown list of nationalities here.)</i></p>
+
+<p><b>Ethnicity</b></p>
+{{ formfield 'ethnicity' }}
+<p><i>(Insert dropdown list of ethnic categories here.)</i></p>
+
+{{ formfield 'children' }}
+
+<p><b>Height and Weight</b></p>
+
+{{ formfield 'height_cm' }}
+{{ formfield 'height_prefer_no' }}
+
+{{ formfield 'weight_kg' }}
+{{ formfield 'weight_prefer_no' }}
+
+<hr>
+
+<p><b>Attention Check</b></p>
+{{ formfield 'attention_check' }}
+
+
+{{ next_button }}
+
+{{ endblock }}
