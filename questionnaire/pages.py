@@ -232,8 +232,16 @@ class EQ5D(Page):
 class PHQ9(Page):
     form_model = 'player'
     form_fields = [
-        'phq1','phq2','phq3','phq4','phq5','phq6','phq7','phq8','phq9',
+        'phq1', 'phq2', 'phq3', 'phq4', 'phq5', 'phq6', 'phq7', 'phq8', 'phq9',
         'impairment'
+    ]
+
+
+class GAD7(Page):
+    form_model = 'player'
+    form_fields = [
+        'gad1', 'gad2', 'gad3', 'gad4', 'gad5', 'gad6', 'gad7',
+        'gad_impairment'
     ]
 
 
@@ -245,5 +253,5 @@ page_sequence = [Demographics, Employment, GlobalPreferences, Health, Lifestyle,
                  PartD,
                  PartE,
                  PartF,
-                 EQ5D, PHQ9
+                 EQ5D, PHQ9, GAD7
                  ]

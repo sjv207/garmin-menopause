@@ -1,0 +1,66 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+<p>
+    <b>Instructions:</b><br>
+    Over the last 2 weeks, how often have you been bothered by the following problems?
+    Please select one option for each statement.
+</p>
+
+<p>
+    <i>Response options:</i><br>
+    0 = Not at all &nbsp;&nbsp; 1 = Several days &nbsp;&nbsp; 2 = More than half the days &nbsp;&nbsp; 3 = Nearly every
+    day
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th style="width:55%;">Question</th>
+        <th style="text-align:center; width:45%;">Response</th>
+    </tr>
+
+    <tr>
+        <td>1. Feeling nervous, anxious, or on edge</td>
+        <td>{{ formfield 'gad1' }}</td>
+    </tr>
+    <tr>
+        <td>2. Not being able to stop or control worrying</td>
+        <td>{{ formfield 'gad2' }}</td>
+    </tr>
+    <tr>
+        <td>3. Worrying too much about different things</td>
+        <td>{{ formfield 'gad3' }}</td>
+    </tr>
+    <tr>
+        <td>4. Trouble relaxing</td>
+        <td>{{ formfield 'gad4' }}</td>
+    </tr>
+    <tr>
+        <td>5. Being so restless that it is hard to sit still</td>
+        <td>{{ formfield 'gad5' }}</td>
+    </tr>
+    <tr>
+        <td>6. Becoming easily annoyed or irritable</td>
+        <td>{{ formfield 'gad6' }}</td>
+    </tr>
+    <tr>
+        <td>7. Feeling afraid as if something awful might happen</td>
+        <td>{{ formfield 'gad7' }}</td>
+    </tr>
+</table>
+
+<hr>
+
+<h4>Functional Impairment (Optional)</h4>
+
+{{ formfield 'gad_impairment' }}
+
+
+{{ next_button }}
+
+{{ endblock }}

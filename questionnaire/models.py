@@ -793,3 +793,32 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    #
+    # GAD-7 Page
+    #
+    GAD_CHOICES = [
+        ("0", "0 – Not at all"),
+        ("1", "1 – Several days"),
+        ("2", "2 – More than half the days"),
+        ("3", "3 – Nearly every day"),
+    ]
+
+    gad1 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad2 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad3 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad4 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad5 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad6 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad7 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+
+    gad_impairment = models.StringField(
+        label="If you checked any problems above, how difficult have these problems made it for you to do your job, take care of things at home, or get along with other people?",
+        choices=[
+            "Not difficult at all",
+            "Somewhat difficult",
+            "Very difficult",
+            "Extremely difficult",
+        ],
+        widget=widgets.RadioSelect
+    )
