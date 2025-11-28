@@ -1,0 +1,33 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<p>Please indicate your willingness or likelihood on the scale from <b>0 to 10</b> for each question.</p>
+
+<p><i>0 = Not at all willing / Not likely at all &nbsp;&nbsp; 10 = Very willing / Very likely</i></p>
+
+<hr>
+
+{{ formfield 'patience' }}
+
+{{ formfield 'risk' }}
+
+{{ formfield 'altruism' }}
+
+{{ formfield 'trust' }}
+
+{{ formfield 'reciprocity' }}
+
+{{ formfield 'retaliation' }}
+
+{{ next_button }}
+
+
+{{ next_button }}
+
+{{ endblock }}

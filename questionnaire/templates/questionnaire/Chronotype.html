@@ -1,0 +1,19 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<p>Please answer the following questions about your natural sleep-wake preference and your work schedule.</p>
+
+{{ formfield 'chronotype' }}
+
+{{ formfield 'shift_work' }}
+
+
+{{ next_button }}
+
+{{ endblock }}

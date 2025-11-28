@@ -30,4 +30,51 @@ class Employment(Page):
     ]
 
 
-page_sequence = [Demographics, Employment]
+class GlobalPreferences(Page):
+    form_model = 'player'
+    form_fields = [
+        'patience',
+        'risk',
+        'altruism',
+        'trust',
+        'reciprocity',
+        'retaliation'
+    ]
+
+
+class Health(Page):
+    form_model = 'player'
+    form_fields = [
+        'physical_health',
+        'fatigue_typical',
+        'fatigue_feel',
+        'fatigue_starting',
+        'fatigue_rundown',
+        'fatigue_average',
+        'chronic_condition',
+        'chronic_condition_details'
+    ]
+
+
+class Lifestyle(Page):
+    form_model = 'player'
+    form_fields = [
+            'caffeine',
+            'alcohol',
+            'nicotine',
+            'medication',
+            'medication_text'
+        ]
+
+
+class Chronotype(Page):
+    form_model = 'player'
+    form_fields = ['chronotype', 'shift_work']
+
+
+class PhysicalActivity(Page):
+    form_model = 'player'
+    form_fields = ['pa_frequency', 'pa_demand']
+
+
+page_sequence = [Demographics, Employment, GlobalPreferences, Health, Lifestyle, Chronotype, PhysicalActivity]

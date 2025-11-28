@@ -1,0 +1,72 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Overall Physical Health</h3>
+
+<p>Over the past month, how would you rate your overall physical health?
+<br><i>(0 = Not healthy at all, 10 = Very healthy)</i></p>
+
+{{ formfield 'physical_health' }}
+
+<hr>
+
+<h3>Fatigue and Energy – Past Month</h3>
+
+<p>Please rate each statement.  
+<br><i>(1 = Not at all, 5 = Extremely)</i></p>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th style="text-align:center">1</th>
+        <th style="text-align:center">2</th>
+        <th style="text-align:center">3</th>
+        <th style="text-align:center">4</th>
+        <th style="text-align:center">5</th>
+    </tr>
+
+    <tr>
+        <td>How fatigued have you generally felt during a typical day?</td>
+        <td colspan="5">{{ formfield 'fatigue_typical' }}</td>
+    </tr>
+
+    <tr>
+        <td>I feel fatigued.</td>
+        <td colspan="5">{{ formfield 'fatigue_feel' }}</td>
+    </tr>
+
+    <tr>
+        <td>I have trouble starting things because I am tired.</td>
+        <td colspan="5">{{ formfield 'fatigue_starting' }}</td>
+    </tr>
+
+    <tr>
+        <td>How run-down did you feel on average?</td>
+        <td colspan="5">{{ formfield 'fatigue_rundown' }}</td>
+    </tr>
+
+    <tr>
+        <td>How fatigued were you on average?</td>
+        <td colspan="5">{{ formfield 'fatigue_average' }}</td>
+    </tr>
+</table>
+
+<hr>
+
+<h3>Chronic Health Condition</h3>
+
+{{ formfield 'chronic_condition' }}
+
+{{ formfield 'chronic_condition_details' }}
+
+
+
+{{ next_button }}
+
+{{ endblock }}
