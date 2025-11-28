@@ -23,7 +23,7 @@ SESSION_CONFIGS = [
         app_sequence=['questionnaire'],
         num_demo_participants=1,
         debug_mode=True,
-        use_browser_bots=True,
+        use_browser_bots=False,
     ),
 
 ]

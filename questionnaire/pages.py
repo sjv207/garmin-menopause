@@ -160,13 +160,22 @@ class PartC(Page):
         "reason_other"
     ]
 
+    @staticmethod
     def is_displayed(player):
-        # If last period was more than 3 months ago
-        return player.last_period_time in [
+        # If PartB was shown...
+        if player.menopause_status in [
+            "Peri-menopause - I've had a period within 12 months and have symptoms",
+            "No - I am still menstruating and not experiencing symptoms of menopause",
+            "Don't know",
+            "Prefer not to say"
+        ] and player.last_period_time in [
             "Between 3 and 6 months ago",
             "Between 6 and 12 months ago",
             "Over 12 months ago"
-        ]
+        ]:
+            return True
+        else:
+            return False
 
 
 # -------------------------------
