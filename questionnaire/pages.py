@@ -15,6 +15,10 @@ class Demographics(Page):
         'attention_check'
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_Demographics', True)
+
 
 class Employment(Page):
     form_model = 'player'
@@ -29,6 +33,10 @@ class Employment(Page):
         'performance_rating'
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_Employment', True)
+
 
 class GlobalPreferences(Page):
     form_model = 'player'
@@ -40,6 +48,10 @@ class GlobalPreferences(Page):
         'reciprocity',
         'retaliation'
     ]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_GlobalPreferences', True)
 
 
 class Health(Page):
@@ -55,6 +67,10 @@ class Health(Page):
         'chronic_condition_details'
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_Health', True)
+
 
 class Lifestyle(Page):
     form_model = 'player'
@@ -66,15 +82,27 @@ class Lifestyle(Page):
         'medication_text'
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_Lifestyle', True)
+
 
 class Chronotype(Page):
     form_model = 'player'
     form_fields = ['chronotype', 'shift_work']
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_Chronotype', True)
+
 
 class PhysicalActivity(Page):
     form_model = 'player'
     form_fields = ['pa_frequency', 'pa_demand']
+
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_PhysicalActivity', True)
 
 
 class AMS(Page):
@@ -84,6 +112,10 @@ class AMS(Page):
         'ams6', 'ams7', 'ams8', 'ams9', 'ams10', 'ams11',
         'ams12', 'ams13', 'ams14', 'ams15', 'ams16', 'ams17'
     ]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_AMS', True)
 
 
 class GeneralHealth(Page):
@@ -103,6 +135,10 @@ class GeneralHealth(Page):
         'q3_happy',
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_GeneralHealth', True)
+
 
 # -------------------------------
 # PART A – SCREENING
@@ -110,6 +146,10 @@ class GeneralHealth(Page):
 class PartA(Page):
     form_model = "player"
     form_fields = ["menopause_status"]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_PartA', True)
 
 
 # -------------------------------
@@ -132,6 +172,7 @@ class PartB(Page):
         "absent_periods"
     ]
 
+    @staticmethod
     def is_displayed(player):
         # Menstruating OR peri OR unsure
         return player.menopause_status in [
@@ -139,7 +180,7 @@ class PartB(Page):
             "No - I am still menstruating and not experiencing symptoms of menopause",
             "Don't know",
             "Prefer not to say"
-        ]
+        ] and player.session.config.get('show_PartB', True)
 
 
 # -------------------------------
@@ -163,16 +204,11 @@ class PartC(Page):
     @staticmethod
     def is_displayed(player):
         # If PartB was shown...
-        if player.menopause_status in [
-            "Peri-menopause - I've had a period within 12 months and have symptoms",
-            "No - I am still menstruating and not experiencing symptoms of menopause",
-            "Don't know",
-            "Prefer not to say"
-        ] and player.last_period_time in [
+        if PartB.is_displayed(player) and player.last_period_time in [
             "Between 3 and 6 months ago",
             "Between 6 and 12 months ago",
             "Over 12 months ago"
-        ]:
+        ] and player.session.config.get('show_PartC', True):
             return True
         else:
             return False
@@ -185,6 +221,7 @@ class PartD(Page):
     form_model = "player"
     form_fields = ["age_menopause", "uterus_ovaries_removed", "current_hrt"]
 
+    @staticmethod
     def is_displayed(player):
         # Displayed if:
         # A: Post-menopause OR
@@ -195,7 +232,7 @@ class PartD(Page):
                 "Between 3 and 6 months ago",
                 "Between 6 and 12 months ago",
                 "Over 12 months ago"
-            ]
+            ] and player.session.config.get('show_PartD', True)
         )
 
 
@@ -214,8 +251,9 @@ class PartE(Page):
 
     # Always shown EXCEPT:
     # If PartD showed AND HRT = YES → skip to F
+    @staticmethod
     def is_displayed(player):
-        if PartD.is_displayed(player) and player.current_hrt == "Yes":
+        if PartD.is_displayed(player) and player.current_hrt == "Yes" and player.session.config.get('show_PartE', True):
             return False
         return True
 
@@ -232,10 +270,18 @@ class PartF(Page):
         "breastfeeding"
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_PartF', True)
+
 
 class EQ5D(Page):
     form_model = 'player'
     form_fields = ['mobility', 'selfcare', 'activities', 'pain', 'anxiety']
+
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_EQ5D', True)
 
 
 class PHQ9(Page):
@@ -245,6 +291,10 @@ class PHQ9(Page):
         'impairment'
     ]
 
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_PHQ9', True)
+
 
 class GAD7(Page):
     form_model = 'player'
@@ -252,6 +302,10 @@ class GAD7(Page):
         'gad1', 'gad2', 'gad3', 'gad4', 'gad5', 'gad6', 'gad7',
         'gad_impairment'
     ]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.session.config.get('show_GAD7', True)
 
 
 page_sequence = [Demographics, Employment, GlobalPreferences, Health, Lifestyle, Chronotype,
