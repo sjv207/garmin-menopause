@@ -25,7 +25,29 @@ class C(BaseConstants):
     NUM_ROUNDS = 1
     LIKERT5 = [[i, ''] for i in range(6)]
     LIKERT3 = [[i, ''] for i in range(4)]
-
+    SYMPTOM_CHOICES = [
+        "Never", "Occasionally", "Often", "Always", "Prefer not to say"
+    ]
+    PHQ_CHOICES = [
+        ("0", "0 - Not at all"),
+        ("1", "1 - Several days"),
+        ("2", "2 - More than half the days"),
+        ("3", "3 - Nearly every day"),
+    ]
+    GAD_CHOICES = [
+        ("0", "0 - Not at all"),
+        ("1", "1 - Several days"),
+        ("2", "2 - More than half the days"),
+        ("3", "3 - Nearly every day"),
+    ]
+    AMS_CHOICES = [
+        "1",  # None
+        "2",  # Mild
+        "3",  # Moderate
+        "4",  # Severe
+        "5",  # Very severe
+        "Prefer not to answer"
+    ]    
 
 class Subsession(BaseSubsession):
     pass
@@ -284,7 +306,8 @@ class Player(BasePlayer):
 
     # Chronic health condition
     chronic_condition = models.StringField(
-        label="Do you have any long-term or chronic health condition, illness, or disability that has lasted (or is expected to last) 12 months or more?",
+        label="Do you have any long-term or chronic health condition, illness, or disability that has lasted "
+        "(or is expected to last) 12 months or more?",
         choices=["Yes", "No", "Prefer not to say"],
         widget=widgets.RadioSelect
     )
@@ -413,109 +436,99 @@ class Player(BasePlayer):
     q2_dryness = make_field_5(
         "Dryness of vagina (sensation of dryness or burning in the vagina, difficulty with sexual intercourse)",
         blank=True)
-    
+
     #
     # Andropause
     #
 
-    # Common response options
-    AMS_CHOICES = [
-        "1",  # None
-        "2",  # Mild
-        "3",  # Moderate
-        "4",  # Severe
-        "5",  # Very severe
-        "Prefer not to answer"
-    ]
-
     # Psychological domain
     ams1 = models.StringField(
         label="Decline in your feeling of general well-being (mood, life satisfaction, general interest)",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams2 = models.StringField(
         label="Feeling nervous, inner tension, anxiety",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams3 = models.StringField(
         label="Physical exhaustion / lacking vitality (general decrease in performance, reduced activity)",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams4 = models.StringField(
         label="Decrease in muscular strength or endurance",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams5 = models.StringField(
         label="Depressive mood (feeling down, sad, lack of motivation)",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
 
     # Somato-vegetative (physical) domain
     ams6 = models.StringField(
         label="Joint and muscular pain (lower back pain, joint pain, limb pain, general stiffness)",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams7 = models.StringField(
         label="Excessive sweating (unexpected or without physical exertion)",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams8 = models.StringField(
         label="Sleep problems (difficulty falling asleep, difficulty sleeping through)",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams9 = models.StringField(
         label="Increased need for sleep, often feeling tired",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams10 = models.StringField(
         label="Irritability",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams11 = models.StringField(
         label="Nervousness",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
 
     # Sexual domain
     ams12 = models.StringField(
         label="Decrease in beard growth",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams13 = models.StringField(
         label="Decrease in ability/frequency to perform sexually",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams14 = models.StringField(
         label="Decrease in morning erections",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams15 = models.StringField(
         label="Decrease in sexual desire / libido",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams16 = models.StringField(
         label="Feeling that you have passed your peak",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
     ams17 = models.StringField(
         label="Decrease in enjoyment of life or satisfaction with life in general",
-        choices=AMS_CHOICES,
+        choices=C.AMS_CHOICES,
         widget=widgets.RadioSelectHorizontal
     )
 
@@ -600,22 +613,18 @@ class Player(BasePlayer):
 
     symptom_interference = models.IntegerField(
         label="During your period, how much do menstrual symptoms interfere with daily activities?",
-        choices=[1,2,3,4,5],
+        choices=[1, 2, 3, 4, 5],
         widget=widgets.RadioSelectHorizontal
     )
 
     # Menstrual symptoms table
     # Values: "Never", "Occasionally", "Often", "Always", "Prefer not to say"
-    symptom_choices = [
-        "Never", "Occasionally", "Often", "Always", "Prefer not to say"
-    ]
 
-    cramps = models.StringField(label="Abdominal cramps or pelvic pain", choices=symptom_choices)
-    headaches = models.StringField(label="Headaches or migraines", choices=symptom_choices)
-    mood_swings = models.StringField(label="Mood swings or irritability", choices=symptom_choices)
-    trouble_concentrating = models.StringField(label="Trouble concentrating", choices=symptom_choices)
-    breast_tenderness = models.StringField(label="Breast tenderness or bloating", choices=symptom_choices)
-
+    cramps = models.StringField(label="Abdominal cramps or pelvic pain", choices=C.SYMPTOM_CHOICES)
+    headaches = models.StringField(label="Headaches or migraines", choices=C.SYMPTOM_CHOICES)
+    mood_swings = models.StringField(label="Mood swings or irritability", choices=C.SYMPTOM_CHOICES)
+    trouble_concentrating = models.StringField(label="Trouble concentrating", choices=C.SYMPTOM_CHOICES)
+    breast_tenderness = models.StringField(label="Breast tenderness or bloating", choices=C.SYMPTOM_CHOICES)
     absent_periods = models.StringField(
         label="Have you ever experienced absent or erratic periods (not due to pregnancy or perimenopause)?",
         choices=[
@@ -764,23 +773,17 @@ class Player(BasePlayer):
     #
     # PHQ Pages
     #
-    PHQ_CHOICES = [
-        ("0", "0 - Not at all"),
-        ("1", "1 - Several days"),
-        ("2", "2 - More than half the days"),
-        ("3", "3 - Nearly every day"),
-    ]
 
     # PHQ-9 items
-    phq1 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq2 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq3 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq4 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq5 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq6 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq7 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq8 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
-    phq9 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq1 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq2 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq3 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq4 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq5 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq6 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq7 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq8 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq9 = models.StringField(choices=C.PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
 
     # Difficulty / impairment item
     impairment = models.StringField(
@@ -797,20 +800,14 @@ class Player(BasePlayer):
     #
     # GAD-7 Page
     #
-    GAD_CHOICES = [
-        ("0", "0 – Not at all"),
-        ("1", "1 – Several days"),
-        ("2", "2 – More than half the days"),
-        ("3", "3 – Nearly every day"),
-    ]
 
-    gad1 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
-    gad2 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
-    gad3 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
-    gad4 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
-    gad5 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
-    gad6 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
-    gad7 = models.StringField(choices=GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad1 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad2 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad3 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad4 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad5 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad6 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
+    gad7 = models.StringField(choices=C.GAD_CHOICES, widget=widgets.RadioSelectHorizontal)
 
     gad_impairment = models.StringField(
         label="If you checked any problems above, how difficult have these problems made it for you to do your job, take care of things at home, or get along with other people?",
