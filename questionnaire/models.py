@@ -172,12 +172,12 @@ class Player(BasePlayer):
     income = models.StringField(
         label="What is your approximate monthly net income (after taxes) in GBP (£)?",
         choices=[
-            "Less than £1,000",
-            "£1,000-£1,999",
-            "£2,000-£2,999",
-            "£3,000-£3,999",
-            "£4,000-£4,999",
-            "£5,000 or more",
+            "Less than £10,000",
+            "£10,000-£10,999",
+            "£20,000-£20,999",
+            "£30,000-£30,999",
+            "£40,000-£40,999",
+            "£50,000 or more",
             "Prefer not to say"
         ],
         widget=widgets.RadioSelect
@@ -302,7 +302,7 @@ class Player(BasePlayer):
         choices=[
             "None",
             "1",
-            "2–3",
+            "2-3",
             "4+",
             "Prefer not to say"
         ],
@@ -314,8 +314,8 @@ class Player(BasePlayer):
         choices=[
             "Never",
             "Monthly or less",
-            "2–4 times per month",
-            "2–3 times per week",
+            "2-4 times per month",
+            "2-3 times per week",
             "4+ times per week"
         ],
         widget=widgets.RadioSelect
