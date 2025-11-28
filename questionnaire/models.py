@@ -5,7 +5,7 @@ from otree.api import (
 )
 import logging
 
-from common.definitions import NATIONALITY
+from common.definitions import ETHNICITY, NATIONALITY
 
 logger = logging.getLogger(__name__)
 author = 'Scott Vincent'
@@ -67,27 +67,7 @@ class Player(BasePlayer):
 
     ethnicity = models.StringField(
         label="How would you describe your ethnicity? (Options defined by UK Office for National Statistics)",
-        choices=[
-            "English, Welsh, Scottish, Northern Irish or British",
-            "Irish",
-            "Gypsy or Irish Traveller",
-            "Any other White background",
-            "White and Black Caribbean",
-            "White and Black African",
-            "White and Asian",
-            "Any other Mixed or Multiple ethnic background",
-            "Indian",
-            "Pakistani",
-            "Bangladeshi",
-            "Chinese",
-            "Any other Asian background",
-            "African",
-            "Caribbean",
-            "Any other Black, Black British, or Caribbean background",
-            "Arab",
-            "Any other ethnic group",
-            "Prefer not to say",
-        ],
+        choices=ETHNICITY,
         widget=widgets.RadioSelect
     )
 

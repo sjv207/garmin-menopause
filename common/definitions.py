@@ -254,3 +254,24 @@ EDUCATION = [
     "Any university-level degree",
     "Other completed certification after A-levels"
 ]
+
+ETHNICITY = [
+    "Asian, Asian British or Asian Welsh: Bangladeshi",
+    "Asian, Asian British or Asian Welsh: Chinese",
+    "Asian, Asian British or Asian Welsh: Indian",
+    "Asian, Asian British or Asian Welsh: Pakistani",
+    "Asian, Asian British or Asian Welsh: Other Asian",
+    "Black, Black British, Black Welsh, Caribbean or African: African",
+    "Black, Black British, Black Welsh, Caribbean or African: Caribbean",
+    "Black, Black British, Black Welsh, Caribbean or African: Other Black",
+    "Mixed or Multiple ethnic groups: White and Asian",
+    "Mixed or Multiple ethnic groups: White and Black African",
+    "Mixed or Multiple ethnic groups: White and Black Caribbean",
+    "Mixed or Multiple ethnic groups: Other Mixed or Multiple ethnic groups",
+    "White: English, Welsh, Scottish, Northern Irish or British",
+    "White: Irish",
+    "White: Gypsy or Irish Traveller",
+    "White: Roma",
+    "White: Other White",
+    "Other ethnic group: Arab",
+    "Other ethnic group: Any other ethnic group"]
