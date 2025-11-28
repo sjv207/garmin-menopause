@@ -46,6 +46,7 @@ class Player(BasePlayer):
 
     def live_method_tiles(self, data, stage_name):
         logger.info(f"live_method data: {data}")
+
         if f"{stage_name}_star_rating" not in self.participant.vars:
             self.participant.vars[f"{stage_name}_star_rating"] = 0.0
             self.participant.vars[f"{stage_name}_count"] = 0

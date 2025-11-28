@@ -6,7 +6,10 @@ https://researcher-help.prolific.co/hc/en-gb/articles/445118-Data-Protection-and
 2. You have a bellief question after Stage 1, which is a piece rate question and the concept of competing
 with other people has not been intriduced to them. I have moved it to after Stage 3 - Competition
 
-
+3. Do you want clickstream data on every click they make and time time thay make it, and whether there's a match or not.
 
 TODO - add the belief question to end of stage 3.
 TODO - add off model stuff to store players data from prev rounds
+TODO - Add debrief quesstions (see external design doc)
+TODO - Add payments page (see external design doc)
+TODO - Check notes for Scott is complete

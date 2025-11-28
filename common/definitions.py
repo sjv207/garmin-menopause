@@ -1,5 +1,5 @@
 
-nationality = [
+NATIONALITY = [
     "Afghan", "Albanian", "Algerian", "American", "Andorran", "Angolan", "Antiguans", "Argentinean", "Armenian",
     "Australian", "Austrian", "Azerbaijani", "Bahamian", "Bahraini", "Bangladeshi", "Barbadian", "Barbudans",
     "Batswana", "Belarusian", "Belgian", "Belizean", "Beninese", "Bhutanese", "Bolivian", "Bosnian", "Brazilian",
@@ -23,7 +23,7 @@ nationality = [
     "Ukrainian", "Uruguayan", "Uzbekistani", "Venezuelan", "Vietnamese", "Yemenite", "Zambian", "Zimbabwean"
 ]
 
-country = [
+COUNTRY = [
     "Afghanistan",
     "Albania",
     "Algeria",
@@ -220,7 +220,7 @@ country = [
     "Zambia",
     "Zimbabwe"]
 
-language = [
+LANGUAGE = [
     "Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Basque", "Belarusian", "Bengali", "Bulgarian", "Burmese",
     "Cantonese", "Catalan", "Chinese", "Croatian", "Czech", "Danish", "Dari", "Dutch", "Dzongkha", "English", "Esperanto",
     "Estonian", "Faroese", "Farsi", "Finnish", "French", "Gaelic", "Galician", "Georgian", "German", "Greek", "Gujarati",
@@ -231,7 +231,7 @@ language = [
     "Tibetan", "Tigrinya", "Tongan", "Turkish", "Turkmen", "Twi", "Ukrainian", "Urdu", "Uzbek", "Vietnamese", "Welsh",
 ]
 
-political_parties = [
+POLITICAL_PARTIES = [
     "Alliance Party",
     "Conservative Party",
     "Co-operative Party",
@@ -246,7 +246,7 @@ political_parties = [
     "Other",
 ]
 
-education = [
+EDUCATION = [
     "Mandatory schooling",
     "GCSE (General Certificate of Secondary Education)",
     "Vocational training",

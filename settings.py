@@ -18,27 +18,14 @@ SESSION_CONFIGS = [
         use_browser_bots=False,
     ),
     dict(
-        name='Regster',
-        display_name='Registratgion app',
-        app_sequence=['solo_app'],
+        name='TEST_questionnaire_app',
+        display_name='Questionnaire app',
+        app_sequence=['questionnaire'],
         num_demo_participants=1,
         debug_mode=True,
         use_browser_bots=False,
     ),
-    # dict(
-    #     name='MenopauseNoConsent',
-    #     display_name='TEST - Survey, no consent',
-    #     app_sequence=['menopause'],
-    #     num_demo_participants=1,
-    #     use_browser_bots=False,
-    # ),
-    # dict(
-    #     name='CompletionNoConsent',
-    #     display_name='TEST - Completion, no consent',
-    #     app_sequence=['completion'],
-    #     num_demo_participants=1,
-    #     use_browser_bots=False,
-    # ),
+
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -52,7 +39,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     SOLO_PAIR_MATCH_PAY=0.05,
     COOP_PAIR_MATCH_PAY=0.0125,
     COMP_PAIR_MATCH_PAY=0.20,
-    TRIAL_TILE_GRID_TIMEOUT_SECONDS=60,
+    TRIAL_TILE_GRID_TIMEOUT_SECONDS=6000,
     TILE_GRID_TIMEOUT_SECONDS=120,
     
 )
