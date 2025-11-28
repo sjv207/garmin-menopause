@@ -1,4 +1,15 @@
 from os import environ
+from mysql.connector import pooling
+
+from common.properties import OFF_MODEL_DATABASE, OFF_MODEL_HOST, OFF_MODEL_PASSWORD, OFF_MODEL_USERNAME
+
+connection_pool = pooling.MySQLConnectionPool(pool_name="ai_story_pool",
+                                              pool_size=10,
+                                              pool_reset_session=True,
+                                              host=OFF_MODEL_HOST,
+                                              database=OFF_MODEL_DATABASE,
+                                              user=OFF_MODEL_USERNAME,
+                                              password=OFF_MODEL_PASSWORD)
 
 SESSION_CONFIGS = [
     dict(
