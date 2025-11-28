@@ -1,0 +1,32 @@
+{{ extends "global/Page.html" }}
+{{ load otree static }}
+
+{{ block title }}
+Economic and Work Status
+{{ endblock }}
+
+{{ block content }}
+
+<p>By placing a tick in one box for each group below, please indicate which statement best describes your health state <b>today</b>.</p>
+
+<hr>
+
+<h4>Mobility</h4>
+{{ formfield 'mobility' }}
+
+<h4>Self-Care</h4>
+{{ formfield 'selfcare' }}
+
+<h4>Usual Activities</h4>
+<p><i>(e.g., work, study, housework, family, or leisure activities)</i></p>
+{{ formfield 'activities' }}
+
+<h4>Pain / Discomfort</h4>
+{{ formfield 'pain' }}
+
+<h4>Anxiety / Depression</h4>
+{{ formfield 'anxiety' }}
+
+{{ next_button }}
+
+{{ endblock }}

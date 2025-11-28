@@ -707,3 +707,89 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    #
+    # EQD
+    #
+    mobility = models.StringField(
+        label="Mobility",
+        choices=[
+            "I have no problems in walking about",
+            "I have some problems in walking about",
+            "I am confined to bed"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    selfcare = models.StringField(
+        label="Self-care",
+        choices=[
+            "I have no problems with self-care",
+            "I have some problems washing or dressing myself",
+            "I am unable to wash or dress myself"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    activities = models.StringField(
+        label="Usual activities (e.g., work, study, housework, family, or leisure activities)",
+        choices=[
+            "I have no problems with performing my usual activities",
+            "I have some problems with performing my usual activities",
+            "I am unable to perform my usual activities"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    pain = models.StringField(
+        label="Pain / Discomfort",
+        choices=[
+            "I have no pain or discomfort",
+            "I have moderate pain or discomfort",
+            "I have extreme pain or discomfort"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    anxiety = models.StringField(
+        label="Anxiety / Depression",
+        choices=[
+            "I am not anxious or depressed",
+            "I am moderately anxious or depressed",
+            "I am extremely anxious or depressed"
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    #
+    # PHQ Pages
+    #
+    PHQ_CHOICES = [
+        ("0", "0 - Not at all"),
+        ("1", "1 - Several days"),
+        ("2", "2 - More than half the days"),
+        ("3", "3 - Nearly every day"),
+    ]
+
+    # PHQ-9 items
+    phq1 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq2 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq3 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq4 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq5 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq6 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq7 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq8 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+    phq9 = models.StringField(choices=PHQ_CHOICES, widget=widgets.RadioSelectHorizontal)
+
+    # Difficulty / impairment item
+    impairment = models.StringField(
+        label="If you checked any problems above, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+        choices=[
+            "Not difficult at all",
+            "Somewhat difficult",
+            "Very difficult",
+            "Extremely difficult",
+        ],
+        widget=widgets.RadioSelect
+    )

@@ -224,8 +224,18 @@ class PartF(Page):
     ]
 
 
-page_sequence = [
-]
+class EQ5D(Page):
+    form_model = 'player'
+    form_fields = ['mobility', 'selfcare', 'activities', 'pain', 'anxiety']
+
+
+class PHQ9(Page):
+    form_model = 'player'
+    form_fields = [
+        'phq1','phq2','phq3','phq4','phq5','phq6','phq7','phq8','phq9',
+        'impairment'
+    ]
+
 
 page_sequence = [Demographics, Employment, GlobalPreferences, Health, Lifestyle, Chronotype,
                  PhysicalActivity,
@@ -234,5 +244,6 @@ page_sequence = [Demographics, Employment, GlobalPreferences, Health, Lifestyle,
                  PartC,
                  PartD,
                  PartE,
-                 PartF
+                 PartF,
+                 EQ5D, PHQ9
                  ]
